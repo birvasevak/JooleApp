@@ -28,10 +28,10 @@ namespace JooleApp.Domain
     
         public virtual tblCategory tblCategory { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tblProduct> tblProducts { get; set; }
+        public virtual ICollection<tblProduct> tblProducts { get; set; } = new List<tblProduct>();
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tblTechSpecFilter> tblTechSpecFilters { get; set; }
+        public virtual ICollection<tblTechSpecFilter> tblTechSpecFilters { get; set; } = new List<tblTechSpecFilter>();
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tblAttribute> tblAttributes { get; set; }
+        public virtual ICollection<tblAttribute> tblAttributes { get; set; } = new List<tblAttribute>();
     }
 }
