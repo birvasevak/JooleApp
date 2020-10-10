@@ -25,6 +25,7 @@ namespace JooleApp.Repository.Repositories
             _context = context;
             entities = _context.Set<T>();
         }
+        
 
         public IEnumerable<T> GetAll()
         {
@@ -48,7 +49,7 @@ namespace JooleApp.Repository.Repositories
 
         public void Update(T entity)
         {
-            //entities.AddOrUpdate(entity);
+          
 
             if (entity == null)
             {
@@ -84,7 +85,6 @@ namespace JooleApp.Repository.Repositories
         {
             _context.SaveChanges();
         }
-
 
 
     }

@@ -3,25 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using JooleApp.Repository.Repositories;
 using JooleApp.Domain;
+using JooleApp.Services.ModelService;
 
 namespace JooleApp.UI.Controllers
 {
     public class CategoryController : Controller
     {
-        //private Repository<tblCategory> repository = null;
-        private ProductCategoryRepo repository = null;
+        private ProductCategoryService service;
 
         public CategoryController()
         {
-            //this.repository = new Repository<tblCategory>();
-            this.repository = new ProductCategoryRepo();
+            this.service = new ProductCategoryService();
         }
 
-        public CategoryController(ProductCategoryRepo repository)
+        public CategoryController(ProductCategoryService service)
         {
-            this.repository = repository;
+            this.service = service;
         }
 
 
@@ -29,16 +27,16 @@ namespace JooleApp.UI.Controllers
         // GET: Category
         public ActionResult Index()
         {
-            var model = repository.GetAll();
+            var model = service.GetAll();
             
             return View(model);
         }
 
-        public IEnumerable<tblSubCategory> GetSubCategories(int CatID)
+        /*public ActionResult GetSubCategories()
         {
-            var model = repository.GetSubCategories(CatID);
-            ViewBag.subCats = model;
-            return model;
-        }
+            int id = 1;
+            List<tblSubCategory> model = service.GetTblSubCategories(id).ToList<tblSubCategory>();
+            return View("Index", model);
+        }*/
     }
 }

@@ -6,7 +6,7 @@ using JooleApp.Domain;
 
 namespace JooleApp.Repository.Repositories
 {
-    public class ProductCategoryRepo
+    public class ProductCategoryRepo : Repository<tblCategory>
     {
         private JooleAppEntities _context = null;
         private DbSet<tblCategory> entities = null;
@@ -23,9 +23,14 @@ namespace JooleApp.Repository.Repositories
             entities = _context.Set<tblCategory>();
         }
 
-        public IEnumerable<tblCategory> GetAll()
+        /*public IEnumerable<tblCategory> GetAll()
         {
             return entities.AsEnumerable();
+        }
+
+        public tblCategory GetById(int Id)
+        {
+            return GetAll().Where(model => model.categoryID == Id).SingleOrDefault();
         }
 
         public void Insert(tblCategory entity)
@@ -76,6 +81,8 @@ namespace JooleApp.Repository.Repositories
         {
             _context.SaveChanges();
         }
+        */
+        
 
         public IEnumerable<tblSubCategory> GetSubCategories(int CatID)
         {
