@@ -8,5 +8,6 @@ namespace JooleApp.Services
 {
     class Service
     {
+
     }
 }

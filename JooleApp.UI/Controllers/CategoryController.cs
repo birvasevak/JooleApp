@@ -10,14 +10,16 @@ namespace JooleApp.UI.Controllers
 {
     public class CategoryController : Controller
     {
-        private Repository<tblCategory> repository = null;
+        //private Repository<tblCategory> repository = null;
+        private ProductCategoryRepo repository = null;
 
         public CategoryController()
         {
-            this.repository = new Repository<tblCategory>();
+            //this.repository = new Repository<tblCategory>();
+            this.repository = new ProductCategoryRepo();
         }
 
-        public CategoryController(Repository<tblCategory> repository)
+        public CategoryController(ProductCategoryRepo repository)
         {
             this.repository = repository;
         }
@@ -28,7 +30,15 @@ namespace JooleApp.UI.Controllers
         public ActionResult Index()
         {
             var model = repository.GetAll();
+            
             return View(model);
+        }
+
+        public IEnumerable<tblSubCategory> GetSubCategories(int CatID)
+        {
+            var model = repository.GetSubCategories(CatID);
+            ViewBag.subCats = model;
+            return model;
         }
     }
 }
