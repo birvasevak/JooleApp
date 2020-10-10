@@ -5,24 +5,29 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using JooleApp.Repository;
 
 namespace JooleApp.Services.ModelService
 {
     public class ProductCategoryService
     {
+        private UnitOfWork unitOfWork;
+        //var x = _unitOfWork.ProductCategoryRepo;
         private ProductCategoryRepo catRepo;
         private Repository<tblSubCategory> subCatRepo;
 
         
-        public ProductCategoryService(ProductCategoryRepo catRepo, Repository<tblSubCategory> subCatRepo)
+        public ProductCategoryService(UnitOfWork unitOfWork, ProductCategoryRepo catRepo, Repository<tblSubCategory> subCatRepo)
         {
-            this.catRepo = catRepo;
+            this.unitOfWork = unitOfWork;
+            this.catRepo = unitOfWork.ProductCategoryRepo;
             this.subCatRepo = subCatRepo;
         }
 
         public ProductCategoryService()
         {
-            this.catRepo = new ProductCategoryRepo();
+            this.unitOfWork = new UnitOfWork();
+            this.catRepo = new UnitOfWork().ProductCategoryRepo;
             this.subCatRepo = new Repository<tblSubCategory>();
         }
 

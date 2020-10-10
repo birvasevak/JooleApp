@@ -26,9 +26,9 @@ namespace JooleApp.Domain
         public string imagePath { get; set; }
         public string modelName { get; set; }
         public string modelYear { get; set; }
-
+    
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tblProductAttribute> tblProductAttributes { get; set; } = new List<tblProductAttribute>();
+        public virtual ICollection<tblProductAttribute> tblProductAttributes { get; set; }
         public virtual tblSubCategory tblSubCategory { get; set; }
     }
 }

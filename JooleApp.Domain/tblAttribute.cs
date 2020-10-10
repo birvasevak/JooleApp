@@ -25,12 +25,12 @@ namespace JooleApp.Domain
         public int attributeID { get; set; }
         public string attributeName { get; set; }
         public Nullable<bool> isTechSpec { get; set; }
-
+    
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tblProductAttribute> tblProductAttributes { get; set; } = new List<tblProductAttribute>();
+        public virtual ICollection<tblProductAttribute> tblProductAttributes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tblTechSpecFilter> tblTechSpecFilters { get; set; } = new List<tblTechSpecFilter>();
+        public virtual ICollection<tblTechSpecFilter> tblTechSpecFilters { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tblSubCategory> tblSubCategories { get; set; } = new List<tblSubCategory>();
+        public virtual ICollection<tblSubCategory> tblSubCategories { get; set; }
     }
 }

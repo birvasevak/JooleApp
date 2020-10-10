@@ -22,8 +22,8 @@ namespace JooleApp.Domain
     
         public int categoryID { get; set; }
         public string categoryName { get; set; }
-
+    
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tblSubCategory> tblSubCategories { get; set; } = new List<tblSubCategory>();
+        public virtual ICollection<tblSubCategory> tblSubCategories { get; set; }
     }
 }
