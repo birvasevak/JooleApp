@@ -1,43 +1,39 @@
-﻿using JooleApp.Domain;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
-using System.Data.Entity.Migrations;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using JooleApp.Domain;
 
 namespace JooleApp.Repository.Repositories
 {
-    public class Repository<T>  where T : class
+    public class ProductCategoryRepo : Repository<tblCategory>
     {
-        private  JooleAppEntities _context = null;
-        private DbSet<T> entities = null;
+        private JooleAppEntities _context = null;
+        private DbSet<tblCategory> entities = null;
         string errorMessage = string.Empty;
 
-        public Repository()
+        public ProductCategoryRepo()
         {
             this._context = new JooleAppEntities();
-            entities = _context.Set<T>();
+            entities = _context.Set<tblCategory>();
         }
-        public Repository(JooleAppEntities context)
+        public ProductCategoryRepo(JooleAppEntities context)
         {
             _context = context;
-            entities = _context.Set<T>();
+            entities = _context.Set<tblCategory>();
         }
-        
 
-        public IEnumerable<T> GetAll()
+        /*public IEnumerable<tblCategory> GetAll()
         {
             return entities.AsEnumerable();
         }
 
-        public T GetbyId(int Id)
+        public tblCategory GetById(int Id)
         {
-            return entities.Find(Id);
+            return GetAll().Where(model => model.categoryID == Id).SingleOrDefault();
         }
 
-        public void Insert(T entity)
+        public void Insert(tblCategory entity)
         {
             if (entity == null)
             {
@@ -47,9 +43,9 @@ namespace JooleApp.Repository.Repositories
             _context.SaveChanges();
         }
 
-        public void Update(T entity)
+        public void Update(tblCategory entity)
         {
-          
+            //entities.AddOrUpdate(entity);
 
             if (entity == null)
             {
@@ -61,7 +57,7 @@ namespace JooleApp.Repository.Repositories
 
         }
 
-        public void Delete(T entity)
+        public void Delete(tblCategory entity)
         {
             if (entity == null)
             {
@@ -71,7 +67,7 @@ namespace JooleApp.Repository.Repositories
             _context.SaveChanges();
         }
 
-        public void Remove(T entity)
+        public void Remove(tblCategory entity)
         {
             if (entity == null)
             {
@@ -85,7 +81,18 @@ namespace JooleApp.Repository.Repositories
         {
             _context.SaveChanges();
         }
+        */
+        
 
+        public IEnumerable<tblSubCategory> GetSubCategories(int CatID)
+        {
+            List<tblSubCategory> subCategories = new List<tblSubCategory>();
+            using (var context =  new JooleAppEntities())
+            {
+                 subCategories = new List<tblSubCategory>().Where(u => u.categoryID == CatID).ToList<tblSubCategory>();
+            }
+            return subCategories;
+        }
 
     }
 }

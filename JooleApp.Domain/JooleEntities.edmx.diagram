@@ -7,7 +7,7 @@
       <Diagram DiagramId="1649bd2c08874329aaa16d52426bee51" Name="Diagram1">
         <EntityTypeShape EntityType="JooleAppModel.tblAttribute" Width="1.5" PointX="0.75" PointY="4.25" IsExpanded="true" />
         <EntityTypeShape EntityType="JooleAppModel.tblCategory" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="JooleAppModel.tblProduct" Width="1.5" PointX="5.25" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="JooleAppModel.tblProduct" Width="1.5" PointX="0.875" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="JooleAppModel.tblSubCategory" Width="1.5" PointX="3" PointY="4.125" IsExpanded="true" />
         <EntityTypeShape EntityType="JooleAppModel.tblUser" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="JooleAppModel.tblProductAttribute" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />

@@ -194,10 +194,6 @@
       <Project>{4aa969a5-57bd-4b1a-b50d-1d0769ba6d74}</Project>
       <Name>JooleApp.Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\JooleApp.Repository\JooleApp.Repository.csproj">
-      <Project>{39e1b32c-f5ca-4e75-b562-47147c0f2ad2}</Project>
-      <Name>JooleApp.Repository</Name>
-    </ProjectReference>
     <ProjectReference Include="..\JooleApp.Services\JooleApp.Services.csproj">
       <Project>{2e994ff5-4e07-4d58-9e33-b652e5dec328}</Project>
       <Name>JooleApp.Services</Name>
