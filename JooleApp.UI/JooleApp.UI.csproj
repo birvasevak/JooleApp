@@ -173,15 +173,15 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Category\Index.cshtml" />
-<<<<<<< Updated upstream
+
     <Content Include="Views\Login\Index.cshtml" />
-=======
+
     <Content Include="Views\tblUsers\Create.cshtml" />
     <Content Include="Views\tblUsers\Delete.cshtml" />
     <Content Include="Views\tblUsers\Details.cshtml" />
     <Content Include="Views\tblUsers\Edit.cshtml" />
     <Content Include="Views\tblUsers\Index.cshtml" />
->>>>>>> Stashed changes
+
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

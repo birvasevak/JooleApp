@@ -95,9 +95,6 @@ D:\Training\Entity Framework\Practice Projects\JooleApp\JooleApp.UI\obj\Debug\Jo
 D:\Training\Entity Framework\Practice Projects\JooleApp\JooleApp.UI\obj\Debug\JooleApp.UI.csproj.CopyComplete
 D:\Training\Entity Framework\Practice Projects\JooleApp\JooleApp.UI\obj\Debug\JooleApp.UI.dll
 D:\Training\Entity Framework\Practice Projects\JooleApp\JooleApp.UI\obj\Debug\JooleApp.UI.pdb
-E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\JooleApp.UI.dll.config
-E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\JooleApp.UI.dll
-E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\JooleApp.UI.pdb
 E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\roslyn\csc.exe
 E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\roslyn\csc.exe.config
 E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\roslyn\csc.rsp
