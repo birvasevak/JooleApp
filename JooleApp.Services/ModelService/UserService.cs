@@ -45,19 +45,31 @@ namespace JooleApp.Services.ModelService
             this.userRepo.Save();
         }
 
-        public void Delete(tblUser category)
+        public void Delete(tblUser user)
         {
-            this.userRepo.Delete(category);
+            this.userRepo.Delete(user);
         }
 
-        public IEnumerable<tblUser> GetUsers(int userID)
+        public IEnumerable<tblUser> GetUserById(int userID)
         {
             return this.userRepo.GetAll().Where(model => model.userID == userID);
+        }
+
+        public IEnumerable<tblUser> GetUserByName(string userName)
+        {
+            return this.userRepo.GetAll().Where(model => model.userName == userName);
         }
 
         public IEnumerable<tblUser> GetUserAuth(string userName,string password)
         {
             return this.userRepo.GetAll().Where(model => model.userName == userName && model.password == password);
+        }
+
+        public void Insert(tblUser user)
+        {
+         
+            this.userRepo.Insert(user);
+            
         }
         //public IEnumerable<tblUser> GetByPredicate(Func<IEnumerable<tblUser>, bool> predicate)
         //{

@@ -38,7 +38,6 @@ namespace JooleApp.UI.Controllers
 
         //[Authorize]
         [HttpPost]
-        
         public ActionResult Authorize(JooleApp.Domain.tblUser userModel)
         {
             HttpCookie cookie = new HttpCookie("tblJooleUser");
@@ -83,6 +82,43 @@ namespace JooleApp.UI.Controllers
             }
             return View();
         }
+
+        public ActionResult Register()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Register(JooleApp.Domain.tblUser userModel)
+        {
+            if (ModelState.IsValid)
+            {
+                var userDetails = service.GetUserByName(userModel.userName).FirstOrDefault();
+
+                
+                if (userDetails == null)
+                {
+                    //userDetails.userName = userModel.userName;
+                    //userDetails.password = userModel.password;
+                    service.Insert(userModel);
+                    ViewBag.LogInMessage = "Success!";
+                    return RedirectToAction("Index");
+                    
+                }
+                else
+                {
+                    ViewBag.LogInMessage = "User name already exists";
+                    return View();
+                }
+
+
+            }
+            return View();
+
+
+        }
+
 
         public ActionResult LogOut()
         {

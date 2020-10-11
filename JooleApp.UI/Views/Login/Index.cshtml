@@ -8,13 +8,96 @@
 <html>
 <head>
     <meta charset="utf-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
+    </script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#btnShowModal").click(function () {
+                $("#SignUpModal").modal('show');
+            });
 
+            $("#btnHideModal").click(function () {
+                $("#SignUpModal").modal('hide');
+            });
+        });
+    </script>
 </head>
 <body>
     <div id="BodyDetail">
 
-        <p id="Loginlbl">Buding Product Selection Platform</p>
+        <p id="Loginlbl"></p>
         <div>
+            <div id="signUp">
+                <!-- a button to perform modal popup -->
+                <button id="btnShowModal" type="button"
+                        class="btn btn-sm btn-default ">
+                    Sign Up
+                </button>
+                @*@Html.ActionLink("Sign Up", "ModalPopUp", "Login")*@
+            </div>
+
+            <!-- sign up modal form appears in a fade style -->
+            <div class="modal fade" tabindex="-1" id="SignUpModal"
+                 data-keyboard="false" data-backdrop="static">
+
+                <!-- size of the modal -->
+                <div class="modal-dialog modal-lg">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">
+                                ×
+                            </button>
+                            <h4 class="modal-title">Register Form</h4>
+                        </div>
+                        <div class="modal-body">
+                            @*input form*@
+                            @using (Html.BeginForm("Register", "Login", FormMethod.Post, new { @id = "SignUpBox" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.userName, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.userName, new { htmlAttributes = new { @class = "form-control" } })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.password, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control" } })
+                                    </div>
+                                </div>
+
+                                @*<div class="form-group">
+                                    <input class="form-control" placeholder="Login Password"
+                                           type="password" id="inputPassword" />
+                                </div>*@
+
+
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-primary button button4">Sign</button>
+                                    <button type="button" id="btnHideModal" class="btn btn-primary button button4"> Back </button>
+                                </div>
+
+                                <div>
+                                    @*sign up message*@
+                                    
+                                       
+                                            @ViewBag.LogInMessage
+
+                                  
+                                </div>
+                            }
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
             @using (Html.BeginForm("Authorize", "Login", FormMethod.Post, new { @id = "loginBox" }))
             //action name, controller name, form method, html attribute
             {
@@ -30,7 +113,7 @@
 
                             </td>
                         </tr>
-                       
+
                         @*Password label and input*@
                         <tr>
                             <td>
@@ -41,26 +124,23 @@
                             </td>
                         </tr>
 
-                         @*login error message*@
+                        @*login error message*@
                         <tr>
-                            <td id="errorMessage">
+                            <td id="errorMessage" class="text-danger">
                                 @ViewBag.LoginErrorMessage
-                            
+
                             </td>
                         </tr>
-                        
+
                     </table>
                 </div>
 
 
                 <div id="loginButton">
-                    @*remember ID checkbox*@
-                    @*<label id="rememberID">Remember my ID</label>*@
-                    @*@Html.LabelFor(model => model.RememberMe, null, new { @id = "rememberID" })
-                    @Html.CheckBoxFor(model => model.RememberMe)*@
+          
 
 
-                    <input type="submit" name="name" value="Log-In" id="LoginBtn_1">
+                    <input type="submit" name="name" value="Log In" id="LoginBtn_1">
                 </div>
             }
         </div>
@@ -72,7 +152,7 @@
                 @Html.ActionLink("Forgot Password", "ForgotPassword", "Login")
             </div>
         </div>
-        @*Login Box  Here *@
+   
     </div>
 
 </body>

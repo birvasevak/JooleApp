@@ -33,6 +33,16 @@ namespace JooleApp.Repository.Repositories
             }
             return users;
         }
+
+        public new void Insert(tblUser entity)
+        {
+            if (entity == null)
+            {
+                throw new ArgumentNullException("entity");
+            }
+            entities.Add(entity);
+            _context.SaveChanges();
+        }
     }
    
 }
