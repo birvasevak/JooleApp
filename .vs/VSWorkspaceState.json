@@ -1,0 +1,11 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\JooleApp.UI",
+    "\\JooleApp.UI\\Controllers",
+    "\\JooleApp.UI\\DataModels",
+    "\\JooleApp.UI\\Views"
+  ],
+  "SelectedNode": "\\JooleApp.UI\\Controllers\\ProductSummaryController.cs",
+  "PreviewInSolutionExplorer": false
+}

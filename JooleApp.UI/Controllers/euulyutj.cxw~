@@ -1,0 +1,45 @@
+﻿using JooleApp.Services.ModelService;
+using JooleApp.UI.DataModels;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+
+
+namespace JooleApp.UI.Controllers
+{
+    public class ProductSummaryController : Controller
+    {
+        ProductSummaryService serv = new ProductSummaryService();
+        // GET: ProductSummary
+        public ActionResult ProductSummary()
+        {
+            ProductDetail pd = new ProductDetail();
+            pd.prodDet = serv.getProdData(2);
+            pd.searchPanel = serv.getSubCatAttData(2);
+            ViewData["Products"] = pd;
+
+            return View();
+        }
+
+
+        public ActionResult UpdatedSummary(ProductDetail data)
+        {
+            return new EmptyResult();
+        }
+
+
+        public PartialViewResult RenderSearchPanel(ProductDetail data)
+        {
+            ViewData["dataSearch"] = data;
+            return PartialView(data);
+        }
+
+
+        public PartialViewResult RenderProducts(ProductDetail data)
+        {
+            return PartialView(data);
+        }
+    }
+}
