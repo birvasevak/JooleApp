@@ -54,5 +54,10 @@ namespace JooleApp.Services.ModelService
         {
             return this.userRepo.GetAll().Where(model => model.userID == userID);
         }
+
+        //public IEnumerable<tblUser> GetByPredicate(Func<IEnumerable<tblUser>, bool> predicate)
+        //{
+        //    return entities.FirstOrDefault(predicate);
+        //}
     }
 }

@@ -94,6 +94,7 @@ E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\JooleApp.UI.dll.config
 E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\JooleApp.UI.dll
 E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\JooleApp.UI.pdb
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\Antlr3.Runtime.dll
 E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\EntityFramework.dll
 E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\EntityFramework.SqlServer.dll
@@ -134,6 +135,8 @@ E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\obj\Debug\JooleApp.UI.csproj.
 E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\obj\Debug\JooleApp.UI.csproj.CopyComplete
 E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\obj\Debug\JooleApp.UI.dll
 E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\obj\Debug\JooleApp.UI.pdb
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\roslyn\csc.exe
@@ -186,6 +189,7 @@ E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\roslyn\vbc.rsp
 E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\roslyn\VBCSCompiler.exe
 E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\roslyn\VBCSCompiler.exe.config
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\System.Net.Http.Formatting.dll
 E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\System.Web.Http.dll
 E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\System.Web.Http.WebHost.dll
@@ -193,6 +197,8 @@ E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\System.Net.Http.Formattin
 E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\System.Web.Http.xml
 E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\System.Web.Http.WebHost.xml
 =======
+=======
+>>>>>>> Stashed changes
 E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\Antlr3.Runtime.dll
 E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\EntityFramework.dll
 E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\EntityFramework.SqlServer.dll
@@ -233,4 +239,7 @@ E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\obj\Debug\JooleApp.UI.csproj.
 E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\obj\Debug\JooleApp.UI.csproj.CopyComplete
 E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\obj\Debug\JooleApp.UI.dll
 E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\obj\Debug\JooleApp.UI.pdb
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
