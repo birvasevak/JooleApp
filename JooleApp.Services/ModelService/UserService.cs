@@ -55,6 +55,14 @@ namespace JooleApp.Services.ModelService
             return this.userRepo.GetAll().Where(model => model.userID == userID);
         }
 
+        public IEnumerable<tblUser> GetUserAuth(string userName,string password)
+        {
+            return this.userRepo.GetAll().Where(model => model.userName == userName && model.password == password);
+        }
+        //public IEnumerable<tblUser> GetByPredicate(Func<IEnumerable<tblUser>, bool> predicate)
+        //{
+        //    return this.userRepo.FirstOrDefault(predicate);
+        //}
         //public IEnumerable<tblUser> GetByPredicate(Func<IEnumerable<tblUser>, bool> predicate)
         //{
         //    return entities.FirstOrDefault(predicate);

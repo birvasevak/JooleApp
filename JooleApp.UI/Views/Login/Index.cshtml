@@ -1,7 +1,81 @@
-﻿
+﻿@model JooleApp.Domain.tblUser
 @{
-    ViewBag.Title = "Login2";
+    ViewBag.Title = "Index";
 }
 
-<h2>Login2</h2>
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+
+</head>
+<body>
+    <div id="BodyDetail">
+
+        <p id="Loginlbl">Buding Product Selection Platform</p>
+        <div>
+            @using (Html.BeginForm("Authorize", "Login", FormMethod.Post, new { @id = "loginBox" }))
+            //action name, controller name, form method, html attribute
+            {
+                <div>
+                    <table>
+                        @*UserID label and input:*@
+                        <tr>
+                            <td>
+                                @Html.LabelFor(model => model.userName, new { @id = "useridlbl" })
+                            </td>
+                            <td>
+                                @Html.TextBoxFor(model => model.userName, new { @id = "useridtextbox", @Value = ViewBag.LoginID })
+
+                            </td>
+                        </tr>
+                       
+                        @*Password label and input*@
+                        <tr>
+                            <td>
+                                @Html.LabelFor(model => model.password, new { @id = "passwordlbl" })
+                            </td>
+                            <td>
+                                @Html.TextBoxFor(model => model.password, null, new { @id = "passwordtextbox" })
+                            </td>
+                        </tr>
+
+                         @*login error message*@
+                        <tr>
+                            <td id="errorMessage">
+                                @ViewBag.LoginErrorMessage
+                            
+                            </td>
+                        </tr>
+                        
+                    </table>
+                </div>
+
+
+                <div id="loginButton">
+                    @*remember ID checkbox*@
+                    @*<label id="rememberID">Remember my ID</label>*@
+                    @*@Html.LabelFor(model => model.RememberMe, null, new { @id = "rememberID" })
+                    @Html.CheckBoxFor(model => model.RememberMe)*@
+
+
+                    <input type="submit" name="name" value="Log-In" id="LoginBtn_1">
+                </div>
+            }
+        </div>
+        <div id="forgot">
+            <div id="forgotUsername">
+                @Html.ActionLink("Forgot Username", "ForgotLoginID", "Login")
+            </div>
+            <div id="forgotPassword">
+                @Html.ActionLink("Forgot Password", "ForgotPassword", "Login")
+            </div>
+        </div>
+        @*Login Box  Here *@
+    </div>
+
+</body>
+
+</html>
 

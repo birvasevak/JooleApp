@@ -36,39 +36,41 @@ namespace JooleApp.UI.Controllers
             return users;
         }
 
-        ////[Authorize]
-        //[HttpPost]
-        //public ActionResult Authorize(string username, string password)
-        //{
-        //    HttpCookie cookie = new HttpCookie("tblJooleUser");
+        //[Authorize]
+        [HttpPost]
+        
+        public ActionResult Authorize(JooleApp.Domain.tblUser userModel)
+        {
+            HttpCookie cookie = new HttpCookie("tblJooleUser");
 
-        //    var userDetails = service.GetUsers(x => x.userID == username &&
-        //      x.Password == userModel.Password).FirstOrDefault();
-        //    if (userDetails == null)
-        //    { //login failed
-        //        userModel.LoginErrorMessage = "Wrong Login ID or Password.";
-        //        return View("Login", userModel);
-        //    }
-        //    else
-        //    { //login success
-        //        System.Web.Security.FormsAuthentication.SetAuthCookie(userModel.userID.ToString(), false);
+            var userDetails = service.GetUserAuth(userModel.userName, userModel.password).FirstOrDefault();
+              
+            if (userDetails == null)
+            { //login failed
+                
+                ViewBag.LoginErrorMessage = "Wrong Login ID or Password.";
+                return View("Index");
+            }
+            else
+            { //login success
+                System.Web.Security.FormsAuthentication.SetAuthCookie(userModel.userName, false);
 
-        //        Session["userID"] = userDetails.userID;
-        //        Session["userName"] = userDetails.FirstName;
-        //        //if (userModel.RememberMe)
-        //        //{
+                Session["userID"] = userDetails.userID;
+                Session["userName"] = userDetails.userName;
+                //if (userModel.RememberMe)
+                //{
 
-        //        //    //cookie.Values.Add("LoginID", userDetails.LoginID);
-        //        //    cookie["loginID"] = userModel.UserID;
-        //        //    cookie.Expires = DateTime.Now.AddDays(15);
-        //        //    HttpContext.Response.Cookies.Add(cookie);
+                //    //cookie.Values.Add("LoginID", userDetails.LoginID);
+                //    cookie["loginID"] = userModel.UserID;
+                //    cookie.Expires = DateTime.Now.AddDays(15);
+                //    HttpContext.Response.Cookies.Add(cookie);
 
-        //        //}
-        //        return RedirectToAction("Index", "Order"); //action name, controller name
-        //    }
+                //}
+                return RedirectToAction("Index", "Category"); //action name, controller name
+            }
 
 
-        //}
+        }
 
         // GET: Login
         public ActionResult Index()
@@ -82,7 +84,16 @@ namespace JooleApp.UI.Controllers
             return View();
         }
 
-       
+        public ActionResult LogOut()
+        {
+            //int loginID = (int) Session["loginID"];
+            //Session.Abandon();
+            return RedirectToAction("Login", "Login"); //action name, controller name
+        }
+
+
+
+
     }
 
 }

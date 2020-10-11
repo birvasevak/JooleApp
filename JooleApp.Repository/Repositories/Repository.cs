@@ -37,6 +37,11 @@ namespace JooleApp.Repository.Repositories
             return entities.Find(Id);
         }
 
+        public T GetByPredicate(Func<T, bool> predicate)
+        {
+            return entities.FirstOrDefault(predicate);
+        }
+
         public void Insert(T entity)
         {
             if (entity == null)

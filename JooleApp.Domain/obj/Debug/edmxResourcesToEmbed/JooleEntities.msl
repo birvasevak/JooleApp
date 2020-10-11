@@ -44,6 +44,7 @@
         <MappingFragment StoreEntitySet="tblUser">
           <ScalarProperty Name="userID" ColumnName="userID" />
           <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="password" ColumnName="password" />
           <ScalarProperty Name="emailAddress" ColumnName="emailAddress" />
           <ScalarProperty Name="firstName" ColumnName="firstName" />
           <ScalarProperty Name="lastName" ColumnName="lastName" />

@@ -17,8 +17,8 @@ E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.Domain\bin\Debug\EntityFramework
 E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.Domain\bin\Debug\EntityFramework.SqlServer.dll
 E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.Domain\bin\Debug\EntityFramework.xml
 E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.Domain\bin\Debug\EntityFramework.SqlServer.xml
-E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.Domain\obj\Debug\JooleApp.Domain.csprojAssemblyReference.cache
 E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.Domain\obj\Debug\JooleApp.Domain.csproj.CoreCompileInputs.cache
 E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.Domain\obj\Debug\JooleApp.Domain.csproj.CopyComplete
 E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.Domain\obj\Debug\JooleApp.Domain.dll
 E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.Domain\obj\Debug\JooleApp.Domain.pdb
+E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.Domain\obj\Debug\JooleApp.Domain.csprojAssemblyReference.cache
