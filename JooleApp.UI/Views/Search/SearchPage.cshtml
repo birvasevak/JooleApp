@@ -7,23 +7,17 @@
 
 @Styles.Render("~/Search/css")
 
-<div class="dropdown">
-    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-        Dropdown Example
-        <span class="caret"></span>
-    </button>
-    <ul class="dropdown-menu">
-        <li><a href="#">HTML</a></li>
-        <li><a href="#">CSS</a></li>
-        <li><a href="#">JavaScript</a></li>
-    </ul>
-</div>
 
 @if (ViewBag.CategoryList != null)
-{
-    @Html.DropDownListFor(m => m.CategoryId, ViewBag.CategoryList as SelectList, "Category", new { @class = "form-control", id = "CategoryId" })
 
-    @Html.DropDownListFor(m => m.SubCategoryID, new SelectList(""), "Search...", new { @class = "form-control", id = "SubCategoryID" })
+{
+    <div class="searchForm">
+        @Html.DropDownListFor(m => m.CategoryId, ViewBag.CategoryList as SelectList, "Category", new { @class = "form-control btn btn-primary dropdown-toggle", id = "CategoryId" })
+
+        @Html.DropDownListFor(m => m.SubCategoryID, new SelectList(""), "Search...", new { @class = "form-control", id = "SubCategoryID" })
+
+        <button class="btn btn-primary" type="submit" id="btnSearch">Search</button>
+    </div>
 }
 
 
@@ -31,8 +25,13 @@
 <script src="~/Scripts/jquery-3.4.1.js"></script>
 <script>
     $(document).ready(function () {
+
+        //$("#CategoryId").addClass("dropdownCat");
+        $("#CategoryId option").addClass("white");
+        var catId;
+        var subCatID;
         $("#CategoryId").change(function () {
-            var catId = $(this).val();
+            catId = $(this).val();
             debugger
             $.ajax({
                 type: "POST",
@@ -42,11 +41,20 @@
                     debugger
                     $("#SubCategoryID").empty();
                     $("#SubCategoryID").append(response);
+
                 },
                 error: function (err) {
                     console.log(err);
                 }
             });
-        })
+        });
+
+        $("#SubCategoryID").change(function () {
+            subCatID = $(this).val();
+        });
+
+        $("#btnSearch").on("click", function () {
+            alert("cattegory ID = " + catId + "\n" + "Subcategory ID = " + subCatID);
+        });
     })
 </script> 

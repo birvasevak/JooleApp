@@ -41,7 +41,7 @@ namespace JooleApp.UI.Controllers
         public ActionResult GetSubCategoryList(int categoryId)
         {
             List<tblSubCategory> selectList = service.GetbyCategoryID(categoryId).ToList<tblSubCategory>();
-            //List<tblSubCategory> selectList = service.GetAll().Where(m => m.categoryID == categoryId).ToList();
+            //IEnumerable<JooleAppEntities> selectLi = service.GetAll().Where(m => m.categoryID == categoryId).;
             ViewBag.SubCategoryList = new SelectList(selectList, "subCategoryID", "categoryName");
 
             return PartialView("DisplaySubCategories");
