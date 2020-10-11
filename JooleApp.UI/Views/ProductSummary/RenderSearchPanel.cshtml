@@ -1,0 +1,22 @@
+﻿@{ 
+    Dictionary<String, List<String>> setData = ViewData["SearchData"] as Dictionary<String, List<String>>;
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="details">
+        @foreach(KeyValuePair<String, List<String>> attName in setData)
+        {
+            <div class="slider">
+                <p>@attName.Key</p>
+                <input type="range" min=@attName.Value[0] max=@attName.Value[1] value=@attName.Value[1] class="slider" id="myRange">
+            </div>
+        }
+
+    </div>
+    
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,36 @@
+﻿@model JooleApp.Services.ModelService.ProductSummaryService
+
+@{
+    ViewBag.Title = "ProductSummary";
+
+    Dictionary<int, List<Dictionary<String, String>>> products = ViewData["Products"] as Dictionary<int, List<Dictionary<String, String>>>;
+    Dictionary<String, List<String>> searchData = ViewData["SearchData"] as Dictionary<String, List<String>>;
+}
+
+<h2>ProductSummary</h2>
+
+<div class="mainBox">
+    <div class="leftPanel">
+        @Html.Partial("RenderSearchPanel", searchData)
+    </div>
+
+    <div class="productsDisplay">
+        @foreach(KeyValuePair<int, List<Dictionary<String, String>>> prod in products)
+        {
+            <div class="cardProducts">
+                <div>
+                    Image Path : @prod.Value[0]["ImagePath"]
+                </div>
+                @foreach (KeyValuePair<String, String> perProd in prod.Value[1])
+                {
+                    <div class="perProd">
+                        @perProd.Key : @perProd.Value
+                    </div>
+                }
+            </div>
+        }
+    </div>
+
+
+</div>
+

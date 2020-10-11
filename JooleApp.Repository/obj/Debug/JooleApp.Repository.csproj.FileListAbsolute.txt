@@ -13,3 +13,18 @@ D:\Training\Entity Framework\Practice Projects\JooleApp\JooleApp.Repository\obj\
 D:\Training\Entity Framework\Practice Projects\JooleApp\JooleApp.Repository\obj\Debug\JooleApp.Repository.csproj.CopyComplete
 D:\Training\Entity Framework\Practice Projects\JooleApp\JooleApp.Repository\obj\Debug\JooleApp.Repository.dll
 D:\Training\Entity Framework\Practice Projects\JooleApp\JooleApp.Repository\obj\Debug\JooleApp.Repository.pdb
+D:\Repositories\PersonalProjs\JooleApp\JooleApp.Repository\bin\Debug\JooleApp.Repository.dll.config
+D:\Repositories\PersonalProjs\JooleApp\JooleApp.Repository\bin\Debug\JooleApp.Repository.dll
+D:\Repositories\PersonalProjs\JooleApp\JooleApp.Repository\bin\Debug\JooleApp.Repository.pdb
+D:\Repositories\PersonalProjs\JooleApp\JooleApp.Repository\bin\Debug\EntityFramework.dll
+D:\Repositories\PersonalProjs\JooleApp\JooleApp.Repository\bin\Debug\EntityFramework.SqlServer.dll
+D:\Repositories\PersonalProjs\JooleApp\JooleApp.Repository\bin\Debug\JooleApp.Domain.dll
+D:\Repositories\PersonalProjs\JooleApp\JooleApp.Repository\bin\Debug\JooleApp.Domain.pdb
+D:\Repositories\PersonalProjs\JooleApp\JooleApp.Repository\bin\Debug\JooleApp.Domain.dll.config
+D:\Repositories\PersonalProjs\JooleApp\JooleApp.Repository\bin\Debug\EntityFramework.xml
+D:\Repositories\PersonalProjs\JooleApp\JooleApp.Repository\bin\Debug\EntityFramework.SqlServer.xml
+D:\Repositories\PersonalProjs\JooleApp\JooleApp.Repository\obj\Debug\JooleApp.Repository.csprojAssemblyReference.cache
+D:\Repositories\PersonalProjs\JooleApp\JooleApp.Repository\obj\Debug\JooleApp.Repository.csproj.CoreCompileInputs.cache
+D:\Repositories\PersonalProjs\JooleApp\JooleApp.Repository\obj\Debug\JooleApp.Repository.csproj.CopyComplete
+D:\Repositories\PersonalProjs\JooleApp\JooleApp.Repository\obj\Debug\JooleApp.Repository.dll
+D:\Repositories\PersonalProjs\JooleApp\JooleApp.Repository\obj\Debug\JooleApp.Repository.pdb

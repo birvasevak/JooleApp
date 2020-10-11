@@ -1,0 +1,26 @@
+﻿body {
+}
+
+
+.mainBox{
+    display : flex;
+    flex-direction : row;
+}
+
+.leftPanel{
+    top : 10vh;
+    left : 0px;
+    position : fixed;
+    display : flex;
+    flex-direction : column;
+    order : 1;
+    flex-grow : 1;
+    height : 100%;
+}
+
+.productsDisplay {
+    display : flex;
+    flex-direction : row;
+    flex-wrap : wrap;
+    flex-grow: 4;
+}
