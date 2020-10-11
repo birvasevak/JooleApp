@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="ModelService\LoginService.cs" />
     <Compile Include="ModelService\ProductCategoryService.cs" />
+    <Compile Include="ModelService\UserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service.cs" />
   </ItemGroup>

@@ -13,6 +13,7 @@ namespace JooleApp.Repository
 
         private JooleAppEntities context = new JooleAppEntities();
         private ProductCategoryRepo productCategoryRepo;
+        private UserRepo userRepo;
 
         public UnitOfWork()
         {
@@ -30,7 +31,17 @@ namespace JooleApp.Repository
                 return productCategoryRepo;
             }
         }
-
+        public UserRepo UserRepo
+        {
+            get
+            {
+                if (this.userRepo == null)
+                {
+                    this.userRepo = new UserRepo(context);
+                }
+                return userRepo;
+            }
+        }
         public void Save()
         {
             context.SaveChanges();

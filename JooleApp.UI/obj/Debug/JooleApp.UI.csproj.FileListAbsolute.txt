@@ -93,6 +93,7 @@ D:\Training\Entity Framework\Practice Projects\JooleApp\JooleApp.UI\obj\Debug\Jo
 E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\JooleApp.UI.dll.config
 E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\JooleApp.UI.dll
 E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\JooleApp.UI.pdb
+<<<<<<< Updated upstream
 E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\Antlr3.Runtime.dll
 E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\EntityFramework.dll
 E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\EntityFramework.SqlServer.dll
@@ -133,6 +134,8 @@ E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\obj\Debug\JooleApp.UI.csproj.
 E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\obj\Debug\JooleApp.UI.csproj.CopyComplete
 E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\obj\Debug\JooleApp.UI.dll
 E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\obj\Debug\JooleApp.UI.pdb
+=======
+>>>>>>> Stashed changes
 E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\roslyn\csc.exe
 E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\roslyn\csc.exe.config
 E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\roslyn\csc.rsp
@@ -182,9 +185,52 @@ E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\roslyn\vbc.exe.config
 E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\roslyn\vbc.rsp
 E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\roslyn\VBCSCompiler.exe
 E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\roslyn\VBCSCompiler.exe.config
+<<<<<<< Updated upstream
 E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\System.Net.Http.Formatting.dll
 E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\System.Web.Http.dll
 E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\System.Web.Http.WebHost.dll
 E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\System.Net.Http.Formatting.xml
 E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\System.Web.Http.xml
 E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\System.Web.Http.WebHost.xml
+=======
+E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\Antlr3.Runtime.dll
+E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\EntityFramework.dll
+E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\EntityFramework.SqlServer.dll
+E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\JooleApp.Domain.dll
+E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\JooleApp.Services.dll
+E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\Microsoft.Web.Infrastructure.dll
+E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\Newtonsoft.Json.dll
+E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\System.Web.Helpers.dll
+E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\System.Web.Mvc.dll
+E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\System.Web.Optimization.dll
+E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\System.Web.Razor.dll
+E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\System.Web.WebPages.Deployment.dll
+E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\System.Web.WebPages.dll
+E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\System.Web.WebPages.Razor.dll
+E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\WebGrease.dll
+E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\JooleApp.Repository.dll
+E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\JooleApp.Domain.pdb
+E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\JooleApp.Domain.dll.config
+E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\JooleApp.Services.pdb
+E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\JooleApp.Services.dll.config
+E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\EntityFramework.xml
+E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\EntityFramework.SqlServer.xml
+E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\System.Web.Helpers.xml
+E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\System.Web.Mvc.xml
+E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\System.Web.Optimization.xml
+E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\System.Web.Razor.xml
+E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\System.Web.WebPages.xml
+E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\System.Web.WebPages.Deployment.xml
+E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\System.Web.WebPages.Razor.xml
+E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\Newtonsoft.Json.xml
+E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\Antlr3.Runtime.pdb
+E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\JooleApp.Repository.pdb
+E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\bin\JooleApp.Repository.dll.config
+E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\obj\Debug\JooleApp.UI.csprojAssemblyReference.cache
+E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\obj\Debug\JooleApp.UI.csproj.CoreCompileInputs.cache
+E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\obj\Debug\JooleApp.UI.csproj.CopyComplete
+E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\obj\Debug\JooleApp.UI.dll
+E:\ZC\ApplicationsVS\JooleApp\JooleApp\JooleApp.UI\obj\Debug\JooleApp.UI.pdb
+>>>>>>> Stashed changes
