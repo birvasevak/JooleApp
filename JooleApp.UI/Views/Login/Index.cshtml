@@ -57,6 +57,10 @@
                             @using (Html.BeginForm("Register", "Login", FormMethod.Post, new { @id = "SignUpBox" }))
                             {
                                 @Html.AntiForgeryToken()
+
+                                //add image
+
+                                //input username
                                 <div class="form-group">
                                     @Html.LabelFor(model => model.userName, htmlAttributes: new { @class = "control-label col-md-2" })
                                     <div class="col-md-10">
@@ -64,6 +68,15 @@
                                     </div>
                                 </div>
 
+                                //input emailAddress
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.emailAddress, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.emailAddress, new { htmlAttributes = new { @class = "form-control" } })
+                                    </div>
+                                </div>
+
+                                //input password
                                 <div class="form-group">
                                     @Html.LabelFor(model => model.password, htmlAttributes: new { @class = "control-label col-md-2" })
                                     <div class="col-md-10">
@@ -71,10 +84,19 @@
                                     </div>
                                 </div>
 
+                                //input confirm password
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.password, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control" } })
+                                    </div>
+                                </div>
+
+
                                 @*<div class="form-group">
-                                    <input class="form-control" placeholder="Login Password"
-                                           type="password" id="inputPassword" />
-                                </div>*@
+                <input class="form-control" placeholder="Login Password"
+                       type="password" id="inputPassword" />
+            </div>*@
 
 
                                 <div class="modal-footer">
@@ -84,11 +106,11 @@
 
                                 <div>
                                     @*sign up message*@
-                                    
-                                       
-                                            @ViewBag.LogInMessage
 
-                                  
+
+                                    @ViewBag.LogInMessage
+
+
                                 </div>
                             }
                         </div>
