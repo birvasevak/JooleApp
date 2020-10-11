@@ -1,0 +1,15 @@
+﻿@model JooleApp.Domain.tblSubCategory
+
+<option value="-1">Search...</option>
+
+@if (ViewBag.SubCategoryList != null)
+{
+    foreach (var item in ViewBag.SubCategoryList)
+    {
+        <option value="@item.Value">@item.Text</option>
+    }
+}
+else
+{
+    <option>Empty List</option>
+}
