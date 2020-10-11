@@ -45,6 +45,7 @@ namespace JooleApp.Services.ModelService
             this.userRepo.Save();
         }
 
+<<<<<<< Updated upstream
         public void Delete(tblUser user)
         {
             this.userRepo.Delete(user);
@@ -79,5 +80,16 @@ namespace JooleApp.Services.ModelService
         //{
         //    return entities.FirstOrDefault(predicate);
         //}
+=======
+        public void Delete(tblUser category)
+        {
+            this.userRepo.Delete(category);
+        }
+
+        public IEnumerable<tblUser> GetUsers(int userID)
+        {
+            return this.userRepo.GetAll().Where(model => model.userID == userID);
+        }
+>>>>>>> Stashed changes
     }
 }

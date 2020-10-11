@@ -33,6 +33,7 @@ namespace JooleApp.Repository.Repositories
             }
             return users;
         }
+<<<<<<< Updated upstream
 
         public new void Insert(tblUser entity)
         {
@@ -43,6 +44,8 @@ namespace JooleApp.Repository.Repositories
             entities.Add(entity);
             _context.SaveChanges();
         }
+=======
+>>>>>>> Stashed changes
     }
    
 }
