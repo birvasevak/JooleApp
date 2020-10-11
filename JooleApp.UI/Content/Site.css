@@ -18,7 +18,7 @@ body {
 /* Set padding to keep content from hitting the edges */
 .body-content {
     background: rgb(36,116,169);
-    background: linear-gradient(180deg, rgba(36,116,169,1) 44%, rgba(243,247,250,1) 100%);
+    background: linear-gradient(180deg, rgba(36,116,169,1) 30%, rgba(243,247,250,1) 100%);
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
