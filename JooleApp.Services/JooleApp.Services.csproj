@@ -51,8 +51,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataClasses\ProductStructure.cs" />
     <Compile Include="ModelService\ProductCategoryService.cs" />
-    <Compile Include="ModelService\UserService.cs" />
+    <Compile Include="ModelService\ProductSummaryService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service.cs" />
   </ItemGroup>

@@ -14,21 +14,21 @@ namespace JooleApp.Services.ModelService
         private UnitOfWork unitOfWork;
         //var x = _unitOfWork.ProductCategoryRepo;
         private ProductCategoryRepo catRepo;
-        private Repository<tblSubCategory> subCatRepo;
+        private ProductSubCategoryRepo subCatRepo;
 
         
-        public ProductCategoryService(UnitOfWork unitOfWork, ProductCategoryRepo catRepo, Repository<tblSubCategory> subCatRepo)
+        public ProductCategoryService(UnitOfWork unitOfWork, ProductCategoryRepo catRepo, ProductSubCategoryRepo subCatRepo)
         {
             this.unitOfWork = unitOfWork;
             this.catRepo = unitOfWork.ProductCategoryRepo;
-            this.subCatRepo = subCatRepo;
+            this.subCatRepo = unitOfWork.ProductSubCategoryRepo;
         }
 
         public ProductCategoryService()
         {
             this.unitOfWork = new UnitOfWork();
             this.catRepo = new UnitOfWork().ProductCategoryRepo;
-            this.subCatRepo = new Repository<tblSubCategory>();
+            this.subCatRepo = new UnitOfWork().ProductSubCategoryRepo;
         }
 
         public IEnumerable<tblCategory> GetAll()
@@ -51,9 +51,14 @@ namespace JooleApp.Services.ModelService
             this.catRepo.Delete(category);
         }
 
-        public IEnumerable<tblSubCategory> GetTblSubCategories(int catID)
+        public List<tblSubCategory> GetTblSubCategories(int catID)
         {
-            return this.subCatRepo.GetAll().Where(model => model.categoryID == catID);
+            return this.subCatRepo.GetAll().Where(model => model.categoryID == catID).ToList<tblSubCategory>();
+        }
+
+        public IEnumerable<tblSubCategory> GetbyCategoryID(int categoryID)
+        {
+            return this.subCatRepo.GetAll().Where(m => m.categoryID == categoryID);
         }
     }
 }

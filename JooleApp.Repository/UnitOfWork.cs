@@ -2,6 +2,7 @@
 using JooleApp.Repository.Repositories;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,13 +12,15 @@ namespace JooleApp.Repository
     public class UnitOfWork : IDisposable
     {
 
-        private JooleAppEntities context = new JooleAppEntities();
+        private JooleAppEntities Context = new JooleAppEntities();
         private ProductCategoryRepo productCategoryRepo;
-        private UserRepo userRepo;
+        private ProductSubCategoryRepo productSubCategoryRepo;
 
         public UnitOfWork()
         {
-            context = new JooleAppEntities();
+            this.Context = new JooleAppEntities();
+            productSubCategoryRepo = new ProductSubCategoryRepo(Context);
+
         }
 
         public ProductCategoryRepo ProductCategoryRepo
@@ -26,29 +29,31 @@ namespace JooleApp.Repository
             {
                 if(this.productCategoryRepo == null)
                 {
-                    this.productCategoryRepo = new ProductCategoryRepo(context);
+                    this.productCategoryRepo = new ProductCategoryRepo(Context);
                 }
                 return productCategoryRepo;
             }
         }
-        public UserRepo UserRepo
+
+        public ProductSubCategoryRepo ProductSubCategoryRepo
         {
             get
             {
-                if (this.userRepo == null)
+                if(this.productSubCategoryRepo == null)
                 {
-                    this.userRepo = new UserRepo(context);
+                    this.productSubCategoryRepo = new ProductSubCategoryRepo(Context);
                 }
-                return userRepo;
+                return productSubCategoryRepo;
             }
         }
+
         public void Save()
         {
-            context.SaveChanges();
+            Context.SaveChanges();
         }
         public void Dispose()
         {
-            context.Dispose();
+            Context.Dispose();
 
         }
     }

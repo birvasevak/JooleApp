@@ -1,0 +1,12 @@
+﻿body {
+}
+
+.details{
+    display : flex;
+    flex-direction : column;
+}
+
+.slider {
+    display: flex;
+    flex-direction: column;
+}

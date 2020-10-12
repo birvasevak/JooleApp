@@ -1,0 +1,60 @@
+﻿@model JooleApp.UI.Models.SearchCascadingClass
+
+@{
+    ViewBag.Title = "Search";
+
+}
+
+@Styles.Render("~/Search/css")
+
+
+@if (ViewBag.CategoryList != null)
+
+{
+    <div class="searchForm">
+        @Html.DropDownListFor(m => m.CategoryId, ViewBag.CategoryList as SelectList, "Category", new { @class = "form-control btn btn-primary dropdown-toggle", id = "CategoryId" })
+
+        @Html.DropDownListFor(m => m.SubCategoryID, new SelectList(""), "Search...", new { @class = "form-control", id = "SubCategoryID" })
+
+        <button class="btn btn-primary" type="submit" id="btnSearch">Search</button>
+    </div>
+}
+
+
+
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<script>
+    $(document).ready(function () {
+
+        //$("#CategoryId").addClass("dropdownCat");
+        $("#CategoryId option").addClass("white");
+        var catId;
+        var subCatID;
+        $("#CategoryId").change(function () {
+            catId = $(this).val();
+            debugger
+            $.ajax({
+                type: "POST",
+                url: "/Search/GetSubCategoryList?categoryId=" + catId,
+                contentType: "html",
+                success: function (response) {
+                    debugger
+                    $("#SubCategoryID").empty();
+                    $("#SubCategoryID").append(response);
+
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            });
+        });
+
+        $("#SubCategoryID").change(function () {
+            subCatID = $(this).val();
+        });
+
+        $("#btnSearch").on("click", function () {
+            alert("cattegory ID = " + catId + "\n" + "Subcategory ID = " + subCatID);
+        });
+    })
+</script> 

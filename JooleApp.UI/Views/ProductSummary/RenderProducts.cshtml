@@ -1,0 +1,19 @@
+﻿@model JooleApp.UI.DataModels.ProductDetail
+
+
+
+@{
+    List<Dictionary<String, String>> prodDetails = ViewData["Products"] as List<Dictionary<String, String>>;
+}
+
+<div class="productCard">
+    <p>
+        @*@foreach(var prod in Model.prodDet)
+        {
+
+        }*@
+
+        @Model.prodDet[0]["ProductName"];
+    </p>
+</div>
+

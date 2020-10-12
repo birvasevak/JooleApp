@@ -19,7 +19,7 @@ namespace JooleApp.Domain
         {
             this.tblProductAttributes = new HashSet<tblProductAttribute>();
         }
-    
+        
         public int productID { get; set; }
         public Nullable<int> subCategoryID { get; set; }
         public string productName { get; set; }
