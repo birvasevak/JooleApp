@@ -1,6 +1,6 @@
 ﻿@model JooleApp.Domain.tblUser
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "LoginPage";
 }
 
 <!DOCTYPE html>
@@ -61,49 +61,52 @@
                                 //add image
 
                                 //input username
-                            <tr class="form-group">
-                                <td>User Name</td>
-                                <td class="col-md-10">
-                                    @Html.EditorFor(model => model.userName, new { htmlAttributes = new { @class = "form-control" } })
-                                </td>
-                                <td>
-                                    @Html.ValidationMessageFor(model => model.userName, "", new { @class = "error" })
-                                </td>
-                            </tr>
+                                <tr class="form-group">
+                                    <td>User Name</td>
+                                    <td class="col-md-10">
+                                        @Html.EditorFor(model => model.userName, new { htmlAttributes = new { @class = "form-control" } })
+                                    </td>
+                                    <td>
+                                        @Html.ValidationMessageFor(model => model.userName, "", new { @class = "error" })
+                                    </td>
+                                </tr>
 
                                 //input emailAddress
-                            <tr class="form-group">
-                                <td>Email Address</td>
-                                <td class="col-md-10">
-                                    @Html.EditorFor(model => model.emailAddress, new { htmlAttributes = new { @class = "form-control" } })
-                                </td>
-                            
-                            </tr>
+                                <tr class="form-group">
+                                    <td>Email Address</td>
+                                    <td class="col-md-10">
+                                        @Html.EditorFor(model => model.emailAddress, new { htmlAttributes = new { @class = "form-control" } })
+                                    </td>
+
+                                </tr>
 
                                 //input password
-                            <tr class="form-group">
-                                <td>Password</td>
-                                <td class="col-md-10">
-                                    @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control" } })
-                                </td>
-                                <td>
-                                    @Html.ValidationMessageFor(model => model.password, "", new { @class = "error" })
-                                </td>
-                            </tr>
+                                <tr class="form-group">
+                                    <td>Password</td>
+                                    <td class="col-md-10">
+                                        @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control" } })
+                                    </td>
+                                    <td>
+                                        @Html.ValidationMessageFor(model => model.password, "", new { @class = "error" })
+                                    </td>
+                                </tr>
 
                                 //input confirm password
-                        <tr class="form-group">
-                            <td>Confirm Password</td>
-                            <td class="col-md-10">
-                                @Html.EditorFor(model => model.confirmPassword, new { htmlAttributes = new { @class = "form-control" } })
-                            </td>
-                        </tr>
+                                <tr class="form-group">
+                                    <td>Confirm Password</td>
+                                    <td class="col-md-10">
+                                        @Html.EditorFor(model => model.confirmPassword, new { htmlAttributes = new { @class = "form-control" } })
+                                    </td>
+                                    <td>
+                                        @Html.ValidationMessageFor(model => model.confirmPassword, "", new { @class = "error" })
+                                    </td>
+                                </tr>
 
 
                                 @*<div class="form-group">
-                <input class="form-control" placeholder="Login Password"
-                       type="password" id="inputPassword" />
-            </div>*@
+                                        <input class="form-control" placeholder="Login Password"
+                                               type="password" id="inputPassword" />
+                                    </div>*@
 
 
                                 <div class="modal-footer">
@@ -166,25 +169,19 @@
 
 
                 <div id="loginButton">
-          
+
 
 
                     <input type="submit" name="name" value="Log In" id="LoginBtn_1">
                 </div>
             }
         </div>
-        <div id="forgot">
-            <div id="forgotUsername">
-                @Html.ActionLink("Forgot Username", "ForgotLoginID", "Login")
-            </div>
-            <div id="forgotPassword">
-                @Html.ActionLink("Forgot Password", "ForgotPassword", "Login")
-            </div>
-        </div>
-   
+
+
     </div>
 
 </body>
-
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/jqueryval")
 </html>
 

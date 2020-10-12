@@ -119,7 +119,7 @@ namespace JooleApp.UI.Controllers
 
 
             }
-            return RedirectToAction("Register"); ;
+            return View();
 
 
         }

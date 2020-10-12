@@ -25,7 +25,7 @@ namespace JooleApp.Domain
         public string password { get; set; }
 
         [NotMapped] // Does not effect with your database
-        [Compare("Password", ErrorMessage = "Confirm password doesn't match, Type again !")]
+        [Compare("password", ErrorMessage = "Confirm password doesn't match, Type again !")]
         public string confirmPassword { get; set; }
         public string emailAddress { get; set; }
         public string firstName { get; set; }
