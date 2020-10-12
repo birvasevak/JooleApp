@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace JooleApp.Repository.Repositories
 {
-   public class ProductSubCategoryRepo : Repository<tblSubCategory>
+    public class ProductSubCategoryRepo : Repository<tblSubCategory>
     {
         private JooleAppEntities _context = null;
         private DbSet<tblSubCategory> entities = null;
