@@ -1,0 +1,34 @@
+﻿body {
+}
+
+.productSummaryLayoutBody{
+    display : flex;
+    flex-direction : column;
+    width : 100%;
+    height : 100vh;
+}
+
+    .productSummaryLayoutHeader {
+        display: flex;
+        flex-direction: row;
+        order: 1;
+        height: 10vh;
+    }
+
+            .brandImage {
+                align-self: flex-start;
+                height : inherit;
+            }
+
+
+    .productSummaryLayoutContent {
+        order: 2;
+        height: 85vh;
+    }
+
+
+
+    footer {
+        order: 3;
+        height : 5vh
+    }
