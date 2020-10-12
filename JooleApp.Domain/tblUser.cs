@@ -33,5 +33,7 @@ namespace JooleApp.Domain
         public string userAddress { get; set; }
         public string phone { get; set; }
         public string userImage { get; set; }
+
+       
     }
 }

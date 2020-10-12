@@ -96,7 +96,7 @@ namespace JooleApp.UI.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult LoginPage(JooleApp.Domain.tblUser userModel)
+        public ActionResult LoginPage(JooleApp.Domain.tblUser userModel, HttpPostedFileBase inputFile)
         {
             if (ModelState.IsValid)
             {
@@ -105,10 +105,20 @@ namespace JooleApp.UI.Controllers
                 
                 if (userDetails == null)
                 {
-                    //userDetails.userName = userModel.userName;
-                    //userDetails.password = userModel.password;
+                    if (inputFile != null)
+                    {
+                        string ImageName = System.IO.Path.GetFileName(inputFile.FileName);
+                        string physicalPath = Server.MapPath("~/images/" + ImageName);
+
+                        // save image in folder
+                        inputFile.SaveAs(physicalPath);
+                        userModel.userImage = ImageName;
+                        ViewBag.ImagePath = ImageName;
+                    }
+
                     service.Insert(userModel);
                     ViewBag.RegisterMessage = "Success!";
+
                     return View(userModel);
 
                 }
