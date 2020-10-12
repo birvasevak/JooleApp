@@ -22,3 +22,15 @@ D:\Repositories\PersonalProjs\JooleApp\JooleApp.Domain\obj\Debug\JooleApp.Domain
 D:\Repositories\PersonalProjs\JooleApp\JooleApp.Domain\obj\Debug\JooleApp.Domain.csproj.CopyComplete
 D:\Repositories\PersonalProjs\JooleApp\JooleApp.Domain\obj\Debug\JooleApp.Domain.dll
 D:\Repositories\PersonalProjs\JooleApp\JooleApp.Domain\obj\Debug\JooleApp.Domain.pdb
+D:\Repositories\JooleApp\JooleApp.Domain\bin\Debug\JooleApp.Domain.dll.config
+D:\Repositories\JooleApp\JooleApp.Domain\bin\Debug\JooleApp.Domain.dll
+D:\Repositories\JooleApp\JooleApp.Domain\bin\Debug\JooleApp.Domain.pdb
+D:\Repositories\JooleApp\JooleApp.Domain\bin\Debug\EntityFramework.dll
+D:\Repositories\JooleApp\JooleApp.Domain\bin\Debug\EntityFramework.SqlServer.dll
+D:\Repositories\JooleApp\JooleApp.Domain\bin\Debug\EntityFramework.xml
+D:\Repositories\JooleApp\JooleApp.Domain\bin\Debug\EntityFramework.SqlServer.xml
+D:\Repositories\JooleApp\JooleApp.Domain\obj\Debug\JooleApp.Domain.csprojAssemblyReference.cache
+D:\Repositories\JooleApp\JooleApp.Domain\obj\Debug\JooleApp.Domain.csproj.CoreCompileInputs.cache
+D:\Repositories\JooleApp\JooleApp.Domain\obj\Debug\JooleApp.Domain.csproj.CopyComplete
+D:\Repositories\JooleApp\JooleApp.Domain\obj\Debug\JooleApp.Domain.dll
+D:\Repositories\JooleApp\JooleApp.Domain\obj\Debug\JooleApp.Domain.pdb

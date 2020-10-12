@@ -15,27 +15,45 @@ namespace JooleApp.UI.Controllers
         // GET: ProductSummary
         public ActionResult ProductSummary()
         {
-            ProductSummaryService serv = new ProductSummaryService();
+            ProductDetail pd = new ProductDetail();
            
-            ViewData["SearchData"] = serv.getSubCatAttData(1);
-            ViewData["Products"] = serv.getProdData(1);
+            pd.prodDet = serv.getProdData(2);
+            pd.searchPanel = serv.getSubCatAttData(2);
+
+            ViewData["Products"] = pd;
             
             return View();
         }
-
-
-        public PartialViewResult RenderSearchPanel(Dictionary<String, List<String>> data)
+        
+        public PartialViewResult RenderSearchPanel(ProductDetail data)
         {
-            ViewData["dataSearch"] = data;
-            return PartialView();
+            return PartialView(data);
         }
 
 
-        public PartialViewResult RenderProducts(List<Dictionary<String, String>> data)
+        public PartialViewResult RenderProducts(ProductDetail data)
         {
+            return PartialView(data);
+        }
+
+        [HttpPost]
+        public PartialViewResult updateProductsQuery(jsonQueryData queryData)
+        {
+            foreach(KeyValuePair<String,String> p in queryData.data)
+            {
+                System.Diagnostics.Debug.WriteLine("Data is " + p.Key + " " + p.Value );
+            }
             ProductDetail pd = new ProductDetail();
-            pd.prodDet = data;
-            return PartialView(pd);
+            pd.prodDet = serv.getProdData(queryData.data, 2);
+            return PartialView("RenderProducts", pd);
         }
+
+        public class jsonQueryData
+        {
+            public Dictionary<String, String> data { get; set; }
+        }
+
+
+
     }
 }
