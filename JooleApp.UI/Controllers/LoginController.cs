@@ -85,6 +85,7 @@ namespace JooleApp.UI.Controllers
                 var userID = cookie["LoginID"].ToString();
                 ViewBag.LoginID = userID;
             }
+            ViewBag.RegisterMessage ="";
             return View();
         }
 
@@ -95,7 +96,7 @@ namespace JooleApp.UI.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Register(JooleApp.Domain.tblUser userModel)
+        public ActionResult LoginPage(JooleApp.Domain.tblUser userModel)
         {
             if (ModelState.IsValid)
             {
@@ -107,14 +108,14 @@ namespace JooleApp.UI.Controllers
                     //userDetails.userName = userModel.userName;
                     //userDetails.password = userModel.password;
                     service.Insert(userModel);
-                    ViewBag.LogInMessage = "Success!";
-                    return RedirectToAction("LoginPage");
-                    
+                    ViewBag.RegisterMessage = "Success!";
+                    return View(userModel);
+
                 }
                 else
                 {
-                    ViewBag.LogInMessage = "User name already exists";
-                    return View("Register");
+                    ViewBag.RegisterMessage = "User name already exists";
+                    
                 }
 
 

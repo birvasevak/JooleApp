@@ -10,8 +10,10 @@
     <meta charset="utf-8" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
     </script>
-    <script src="bootstrap/js/bootstrap.min.js"></script>
+    
     <script type="text/javascript">
+
+
         $(document).ready(function () {
             $("#btnShowModal").click(function () {
                 $("#SignUpModal").modal('show');
@@ -20,7 +22,14 @@
             $("#btnHideModal").click(function () {
                 $("#SignUpModal").modal('hide');
             });
+
+            var RegisterStringValue = '@(ViewBag.RegisterMessage)';
+            if (RegisterStringValue != "") {
+                $("#SignUpModal").modal('show');
+            }
         });
+
+
     </script>
 </head>
 <body>
@@ -36,6 +45,7 @@
                 </button>
                 @*@Html.ActionLink("Sign Up", "ModalPopUp", "Login")*@
             </div>
+
 
             <!-- sign up modal form appears in a fade style -->
             <div class="modal fade" tabindex="-1" id="SignUpModal"
@@ -54,7 +64,7 @@
                         </div>
                         <div class="modal-body">
                             @*input form*@
-                            @using (Html.BeginForm("Register", "Login", FormMethod.Post, new { @id = "SignUpBox" }))
+                            @using (Html.BeginForm("LoginPage", "Login", FormMethod.Post, new { @id = "SignUpBox" }))
                             {
                                 @Html.AntiForgeryToken()
 
@@ -101,12 +111,15 @@
                                         @Html.ValidationMessageFor(model => model.confirmPassword, "", new { @class = "error" })
                                     </td>
                                 </tr>
+                                <tr>
+                                    @ViewBag.RegisterMessage
+                                </tr>
 
 
                                 @*<div class="form-group">
-                                        <input class="form-control" placeholder="Login Password"
-                                               type="password" id="inputPassword" />
-                                    </div>*@
+                                <input class="form-control" placeholder="Login Password"
+                                       type="password" id="inputPassword" />
+                            </div>*@
 
 
                                 <div class="modal-footer">
@@ -129,6 +142,7 @@
                 </div>
             </div>
 
+           
 
             @using (Html.BeginForm("Authorize", "Login", FormMethod.Post, new { @id = "loginBox" }))
             //action name, controller name, form method, html attribute
@@ -183,5 +197,6 @@
 </body>
 @Scripts.Render("~/bundles/jquery")
 @Scripts.Render("~/bundles/jqueryval")
+@Scripts.Render("~/bundles/bootstrap")
 </html>
 
