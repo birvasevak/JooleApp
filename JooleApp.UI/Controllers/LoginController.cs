@@ -53,7 +53,7 @@ namespace JooleApp.UI.Controllers
             { //login failed
                 
                 ViewBag.LoginErrorMessage = "Wrong Login ID or Password.";
-                return View("Index");
+                return View("LoginPage");
             }
             else
             { //login success
@@ -77,7 +77,7 @@ namespace JooleApp.UI.Controllers
         }
 
         // GET: Login
-        public ActionResult Index()
+        public ActionResult LoginPage()
         {
             HttpCookie cookie = Request.Cookies["."];
             if (cookie != null)
@@ -108,7 +108,7 @@ namespace JooleApp.UI.Controllers
                     //userDetails.password = userModel.password;
                     service.Insert(userModel);
                     ViewBag.LogInMessage = "Success!";
-                    return RedirectToAction("Index");
+                    return RedirectToAction("LoginPage");
                     
                 }
                 else

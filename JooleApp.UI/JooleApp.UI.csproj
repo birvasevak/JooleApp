@@ -174,7 +174,7 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Category\Index.cshtml" />
-    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Login\LoginPage.cshtml" />
     <Content Include="Views\tblUsers\Create.cshtml" />
     <Content Include="Views\tblUsers\Delete.cshtml" />
     <Content Include="Views\tblUsers\Details.cshtml" />
