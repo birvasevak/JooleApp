@@ -127,6 +127,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ProductSummaryController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -146,6 +147,7 @@
     <Content Include="Content\CSS\RenderSearchPanel.css" />
     <Content Include="Content\CSS\_ProductSummaryLayout.css" />
     <Content Include="Content\JooleStyles\SearchPage.css" />
+    <Content Include="Content\StyleSheet1.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -186,6 +188,8 @@
     <Content Include="Views\ProductSummary\ProductSummary.cshtml" />
     <Content Include="Views\ProductSummary\RenderProducts.cshtml" />
     <Content Include="Views\ProductSummary\RenderSearchPanel.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\Login\LoginPage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

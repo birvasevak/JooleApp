@@ -15,12 +15,25 @@ namespace JooleApp.Repository
         private JooleAppEntities Context = new JooleAppEntities();
         private ProductCategoryRepo productCategoryRepo;
         private ProductSubCategoryRepo productSubCategoryRepo;
+        private UserRepo userRepo;
 
         public UnitOfWork()
         {
             this.Context = new JooleAppEntities();
             productSubCategoryRepo = new ProductSubCategoryRepo(Context);
 
+        }
+
+        public UserRepo UserRepo
+        {
+            get
+            {
+                if (this.userRepo == null)
+                {
+                    this.userRepo = new UserRepo(Context);
+                }
+                return userRepo;
+            }
         }
 
         public ProductCategoryRepo ProductCategoryRepo
