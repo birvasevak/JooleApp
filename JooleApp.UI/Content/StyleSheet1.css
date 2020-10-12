@@ -18,9 +18,8 @@ body {
 /* Set padding to keep content from hitting the edges */
 .body-content {
     background: rgb(36,116,169);
-    <<<<<<< HEAD background: linear-gradient(180deg, rgba(36,116,169,1) 30%, rgba(243,247,250,1) 100%);
-    ======= background: linear-gradient(180deg, rgba(36,116,169,1) 44%, rgba(243,247,250,1) 100%);
-    >>>>>>> 34cea13f4f954eff0386f237076b7263fdc51f1e
+  background: linear-gradient(180deg, rgba(36,116,169,1) 44%, rgba(243,247,250,1) 100%);
+
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -73,9 +72,5 @@ textarea {
     color: black;
     justify-content: center;
     text-align: center;
-    <<<<<<< HEAD
 }
 
-=======
-}
-> > > > > > > 34cea13f4f954eff0386f237076b7263fdc51f1e

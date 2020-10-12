@@ -11,12 +11,18 @@ namespace JooleApp.Domain
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+
     public partial class tblUser
     {
         public int userID { get; set; }
         public string userName { get; set; }
         public string password { get; set; }
+
+        [NotMapped] // Does not effect with your database
+        [Compare("Password", ErrorMessage = "Confirm password doesn't match, Type again !")]
+        public string confirmPassword { get; set; }
         public string emailAddress { get; set; }
         public string firstName { get; set; }
         public string lastName { get; set; }
