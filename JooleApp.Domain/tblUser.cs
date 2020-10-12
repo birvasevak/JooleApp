@@ -17,7 +17,11 @@ namespace JooleApp.Domain
     public partial class tblUser
     {
         public int userID { get; set; }
+
+        [Required(ErrorMessage = "User name is required.")]
         public string userName { get; set; }
+
+        [Required(ErrorMessage = "Password is required.")]
         public string password { get; set; }
 
         [NotMapped] // Does not effect with your database

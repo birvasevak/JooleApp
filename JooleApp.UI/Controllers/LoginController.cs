@@ -114,12 +114,12 @@ namespace JooleApp.UI.Controllers
                 else
                 {
                     ViewBag.LogInMessage = "User name already exists";
-                    return View();
+                    return View("Register");
                 }
 
 
             }
-            return View();
+            return RedirectToAction("Register"); ;
 
 
         }

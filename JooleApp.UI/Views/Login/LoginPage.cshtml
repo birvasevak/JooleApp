@@ -61,36 +61,43 @@
                                 //add image
 
                                 //input username
-                                <div class="form-group">
-                                    @Html.LabelFor(model => model.userName, htmlAttributes: new { @class = "control-label col-md-2" })
-                                    <div class="col-md-10">
-                                        @Html.EditorFor(model => model.userName, new { htmlAttributes = new { @class = "form-control" } })
-                                    </div>
-                                </div>
+                            <tr class="form-group">
+                                <td>User Name</td>
+                                <td class="col-md-10">
+                                    @Html.EditorFor(model => model.userName, new { htmlAttributes = new { @class = "form-control" } })
+                                </td>
+                                <td>
+                                    @Html.ValidationMessageFor(model => model.userName, "", new { @class = "error" })
+                                </td>
+                            </tr>
 
                                 //input emailAddress
-                                <div class="form-group">
-                                    @Html.LabelFor(model => model.emailAddress, htmlAttributes: new { @class = "control-label col-md-2" })
-                                    <div class="col-md-10">
-                                        @Html.EditorFor(model => model.emailAddress, new { htmlAttributes = new { @class = "form-control" } })
-                                    </div>
-                                </div>
+                            <tr class="form-group">
+                                <td>Email Address</td>
+                                <td class="col-md-10">
+                                    @Html.EditorFor(model => model.emailAddress, new { htmlAttributes = new { @class = "form-control" } })
+                                </td>
+                            
+                            </tr>
 
                                 //input password
-                                <div class="form-group">
-                                    @Html.LabelFor(model => model.password, htmlAttributes: new { @class = "control-label col-md-2" })
-                                    <div class="col-md-10">
-                                        @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control" } })
-                                    </div>
-                                </div>
+                            <tr class="form-group">
+                                <td>Password</td>
+                                <td class="col-md-10">
+                                    @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control" } })
+                                </td>
+                                <td>
+                                    @Html.ValidationMessageFor(model => model.password, "", new { @class = "error" })
+                                </td>
+                            </tr>
 
                                 //input confirm password
-                                <div class="form-group">
-                                    @Html.LabelFor(model => model.confirmPassword, htmlAttributes: new { @class = "control-label col-md-2" })
-                                    <div class="col-md-10">
-                                        @Html.EditorFor(model => model.confirmPassword, new { htmlAttributes = new { @class = "form-control" } })
-                                    </div>
-                                </div>
+                        <tr class="form-group">
+                            <td>Confirm Password</td>
+                            <td class="col-md-10">
+                                @Html.EditorFor(model => model.confirmPassword, new { htmlAttributes = new { @class = "form-control" } })
+                            </td>
+                        </tr>
 
 
                                 @*<div class="form-group">
