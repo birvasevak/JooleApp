@@ -109,12 +109,12 @@ namespace JooleApp.UI.Controllers
                     if (inputFile != null)
                     {
                         string ImageName = System.IO.Path.GetFileName(inputFile.FileName);
-                        string physicalPath = Server.MapPath("~/images/" + ImageName);
+                        string physicalPath = Server.MapPath("~/Images/" + ImageName);
 
                         // save image in folder
                         inputFile.SaveAs(physicalPath);
                         userModel.userImage = ImageName;
-                        ViewBag.ImageSrc = "images/"+ ImageName;
+                        ViewBag.ImageSrc = "/Images/"+ ImageName;
                     }
 
                     service.Insert(userModel);
