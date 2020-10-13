@@ -16,6 +16,7 @@ namespace JooleApp.Repository
         private ProductCategoryRepo productCategoryRepo;
         private ProductSubCategoryRepo productSubCategoryRepo;
         private UserRepo userRepo;
+        private ProductDetailRepo productDetailRepo;
 
         public UnitOfWork()
         {
@@ -57,6 +58,18 @@ namespace JooleApp.Repository
                     this.productSubCategoryRepo = new ProductSubCategoryRepo(Context);
                 }
                 return productSubCategoryRepo;
+            }
+        }
+
+        public ProductDetailRepo ProductDetailRepo
+        {
+            get
+            {
+                if (this.productDetailRepo == null)
+                {
+                    this.productDetailRepo = new ProductDetailRepo(Context);
+                }
+                return productDetailRepo;
             }
         }
 

@@ -146,6 +146,7 @@
     <Content Include="Content\CSS\ProductSummary.css" />
     <Content Include="Content\CSS\RenderSearchPanel.css" />
     <Content Include="Content\CSS\_ProductSummaryLayout.css" />
+    <Content Include="Content\JooleStyles\ProductDetails.css" />
     <Content Include="Content\JooleStyles\SearchPage.css" />
     <Content Include="Content\StyleSheet1.css" />
     <Content Include="favicon.ico" />
@@ -190,9 +191,11 @@
     <Content Include="Views\ProductSummary\RenderSearchPanel.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\Login\LoginPage.cshtml" />
+    <Content Include="Views\Search\checkProj.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\ProductDetails\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

@@ -34,6 +34,11 @@ namespace JooleApp.UI
             bundles.Add(new StyleBundle("~/Content/ProductSummary").Include(
                       "~/Content/CSS/ProductSummary.css",
                       "~/Content/CSS/RenderSearchPanel.css"));
+
+            bundles.Add(new StyleBundle("~/ProductDetail/css").Include(
+                      "~/Content/bootstrap.css",
+                      "~/Content/site.css",
+                      "~/Content/JooleStyles/ProductDetails.css"));
         }
     }
 }
