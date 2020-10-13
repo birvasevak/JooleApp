@@ -70,7 +70,7 @@ namespace JooleApp.UI.Controllers
                 System.Web.Security.FormsAuthentication.SetAuthCookie(userModel.userName, false);
                 System.Web.Security.FormsAuthentication.SetAuthCookie(userModel.emailAddress, false);
 
-                Session["UserAvatar"] = "/Images/" + userModel.userImage;
+                Session["UserAvatar"] = "/Images/" + userDetails.userImage;
                 Session["userID"] = userDetails.userID;
                 Session["userName"] = userDetails.userName;
                 Session["emailAddress"] = userDetails.emailAddress;

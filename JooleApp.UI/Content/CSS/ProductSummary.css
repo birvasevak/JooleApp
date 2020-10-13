@@ -36,8 +36,8 @@
     position: fixed;
     top: 10px;
     right: 10%;
-    width: auto;
-    height: inherit;
+    height: 50px;
+    width:50px;
     background-size: contain;
     background-position: center;
     border-radius: 50%;

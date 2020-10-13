@@ -27,10 +27,13 @@ namespace JooleApp.UI.Controllers
             pd.searchPanel = serv.getSubCatAttData(scc.SubCategoryID);
 
             ViewData["Products"] = pd;
-            Session["UserAvatar"]= "http://via.placeholder.com/150x150";
 
-
-            return View();
+            //set default avatar
+            if (System.Web.HttpContext.Current.Session["UserAvatar"] == null)
+            {
+                Session["UserAvatar"] = "http://via.placeholder.com/150x150";
+            }
+                return View();
         }
         
         public PartialViewResult RenderSearchPanel(ProductDetail data)
