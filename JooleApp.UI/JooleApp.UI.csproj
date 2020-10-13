@@ -144,7 +144,10 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\CSS\ProductSummary.css" />
+    <Content Include="Content\CSS\RenderProducts.css" />
     <Content Include="Content\CSS\RenderSearchPanel.css" />
+    <Content Include="Content\CSS\SearchBar.css" />
+    <Content Include="Content\CSS\_ProductSummary.css" />
     <Content Include="Content\CSS\_ProductSummaryLayout.css" />
     <Content Include="Content\JooleStyles\SearchPage.css" />
     <Content Include="Content\StyleSheet1.css" />
@@ -190,6 +193,8 @@
     <Content Include="Views\ProductSummary\RenderSearchPanel.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\Login\LoginPage.cshtml" />
+    <Content Include="Views\Shared\_ProductSummaryLayout.cshtml" />
+    <Content Include="Views\ProductSummary\SearchBar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

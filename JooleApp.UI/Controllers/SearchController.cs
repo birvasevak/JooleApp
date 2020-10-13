@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using JooleApp.Domain;
 using JooleApp.Services.ModelService;
+using JooleApp.UI.Models;
 
 namespace JooleApp.UI.Controllers
 {
@@ -21,7 +22,6 @@ namespace JooleApp.UI.Controllers
         {
             this.service = service;
         }
-
 
 
         // GET: Category
@@ -46,6 +46,12 @@ namespace JooleApp.UI.Controllers
 
             return PartialView("DisplaySubCategories");
             //return Json(selectList, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public ActionResult SearchPage(SearchCascadingClass scc)
+        {
+            return this.RedirectToAction("ProductSummary", "ProductSummary", scc);
         }
 
     }
