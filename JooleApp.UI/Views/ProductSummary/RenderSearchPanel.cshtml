@@ -3,19 +3,46 @@
 
 <div class="details">
 
+    <div class="attTypeSearch">
+        <div class="searchText">
+            Search
+        </div>
+        <button class="btnSave btn-primary searchButton">
+            Save
+        </button>
+        <button class="btnSave btn-primary">
+            Clear
+        </button>
+    </div>
+
+    <div class="uselessDisp">
+        <div class="attType">
+            Product
+        </div>
+
+        <div class="attType">
+            Project
+        </div>
+    </div>
+
     <div class="attType">
         Technical Specifications :
     </div>
-
 
     @foreach (KeyValuePair<String, List<String>> attName in Model.searchPanel)
     {
         if (@attName.Value[0] != @attName.Value[1])
         {
-            <div class="attName">@attName.Key :</div>
-            <div class="slider">
+            <div class="attName">
+                @attName.Key :
                 @{
                     var temp2 = (attName.Key).Replace(" ", "_");
+                    var tempVal = "valueUpdate_" + temp2;
+                }
+                <div class="currentValue" id=@tempVal> 0 </div>
+            </div>
+            <div class="slider">
+                @{
                     var temp = "minVal_" + temp2;
                 }
 
@@ -35,10 +62,6 @@
             </div>
         }
     }
-
-    <button class="searchButton">
-        Search
-    </button>
 </div>
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
