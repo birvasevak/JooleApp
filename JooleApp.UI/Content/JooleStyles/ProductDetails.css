@@ -1,0 +1,31 @@
+﻿table {
+    margin-bottom: 18px;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+    table .keyvalue {
+        margin-bottom: 22px;
+        border-bottom: 1px solid #e7e7e7;
+    }
+
+.keyvalue th {
+    padding: 7px 14px 6px;
+    border-top: 1px solid #e7e7e7;
+    background-color: #f3f3f3;
+    color: #111;
+    font-weight: 400;
+}
+
+.keyvalue td {
+    padding: 7px 14px 6px;
+    border-top: 1px solid #e7e7e7;
+}
+
+.keyvalue tr:first-child {
+    padding-top: 0;
+}
+
+.keyvalue tr:last-child {
+    border-bottom: 1px solid #e7e7e7;
+}
