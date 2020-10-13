@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using JooleApp.Domain;
 using JooleApp.Services.ModelService;
+using JooleApp.UI.Models;
 
 namespace JooleApp.UI.Controllers
 {
@@ -24,7 +25,6 @@ namespace JooleApp.UI.Controllers
             this.service = service;
             this.detailService = detailService;
         }
-
 
 
         // GET: Category
@@ -58,6 +58,12 @@ namespace JooleApp.UI.Controllers
             ViewData["description"] = detailService.getProductDescription(productID);
             ViewData["type"] = detailService.des(productID);
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult SearchPage(SearchCascadingClass scc)
+        {
+            return this.RedirectToAction("ProductSummary", "ProductSummary", scc);
         }
 
     }

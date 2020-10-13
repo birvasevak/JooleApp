@@ -36,7 +36,7 @@ namespace JooleApp.Repository
                 return userRepo;
             }
         }
-
+        
         public ProductCategoryRepo ProductCategoryRepo
         {
             get

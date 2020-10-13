@@ -55,6 +55,7 @@
     <Compile Include="ModelService\ProductCategoryService.cs" />
     <Compile Include="ModelService\ProductDetailService.cs" />
     <Compile Include="ModelService\ProductSummaryService.cs" />
+    <Compile Include="ModelService\SubCategoryService.cs" />
     <Compile Include="ModelService\UserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service.cs" />

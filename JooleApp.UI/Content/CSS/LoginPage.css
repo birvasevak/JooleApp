@@ -1,0 +1,89 @@
+﻿body {
+}
+.input-group .form-control {
+    margin: 0px !important;
+}
+
+.input-group-addon {
+    border: 0px solid #ccc;
+    background-color: #ffffff;
+}
+    #btnShowModal {
+    color: black;
+    position: fixed;
+    top: 10px;
+    right: 10%;
+
+    border: none;
+    background-color: inherit;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+#useridtextbox {
+    margin-bottom: 0px;
+}
+
+#passwordtextbox {
+    margin-bottom: 0px;
+}
+
+.loginInput {
+    width: 50em;
+    max-width: 500px;
+}
+
+.loginBox {
+    display: flex;
+    margin: auto;
+    width: auto;
+}
+
+#loginBox {
+    margin: auto;
+    width: 30em;
+}
+
+#loginButton {
+    float: right;
+}
+
+#LoginBtn_1 {
+    width: 8em;
+    margin-right: 10px;
+}
+
+#BodyDetail {
+    display: inline-flex;
+}
+
+/*modal style sheet*/
+#yourImage {
+    width: 100px;
+    height: 100px;
+    background-size: contain;
+    background-position: center;
+    border-radius: 50%;
+}
+
+.fieldName {
+    display: inline-block;
+    margin-left: 2px;
+    width: 140px;
+    text-align: left;
+    line-height: 2.5;
+}
+
+.registerInput {
+    display: inline-block;
+    font-size: 12px;
+    line-height: 1.5;
+    padding: 3px;
+    margin-left: 2%;
+}
+
+.imagePart{
+    margin-left: 20%;
+}
