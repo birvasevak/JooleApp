@@ -1,6 +1,6 @@
 ﻿@model JooleApp.Domain.tblUser
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "LoginPage";
 }
 
 <!DOCTYPE html>
@@ -8,10 +8,14 @@
 <html>
 <head>
     <meta charset="utf-8" />
+    <link href="@Url.Content("~/Content/CSS/LoginPage.css")" rel="stylesheet" type="text/css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
     </script>
-    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/d056727b08.js" crossorigin="anonymous"></script>
+    @*script for showing register modal*@
     <script type="text/javascript">
+
+
         $(document).ready(function () {
             $("#btnShowModal").click(function () {
                 $("#SignUpModal").modal('show');
@@ -20,22 +24,29 @@
             $("#btnHideModal").click(function () {
                 $("#SignUpModal").modal('hide');
             });
+
+            //keep the modal open after submit
+            var RegisterStringValue = '@(ViewBag.HasInput)';
+            if (RegisterStringValue != "") {
+                $("#SignUpModal").modal('show');
+            }
         });
     </script>
+
 </head>
 <body>
-    <div id="BodyDetail">
+    @*<div id="BodyDetail">*@
 
-        <p id="Loginlbl"></p>
-        <div>
-            <div id="signUp">
-                <!-- a button to perform modal popup -->
-                <button id="btnShowModal" type="button"
-                        class="btn btn-sm btn-default ">
-                    Sign Up
-                </button>
-                @*@Html.ActionLink("Sign Up", "ModalPopUp", "Login")*@
-            </div>
+       
+        
+    <div id="signUp">
+        <!-- a button to perform modal popup -->
+        <button id="btnShowModal" >
+            Sign Up
+        </button>
+
+    </div>
+
 
             <!-- sign up modal form appears in a fade style -->
             <div class="modal fade" tabindex="-1" id="SignUpModal"
@@ -50,53 +61,69 @@
                             <button type="button" class="close" data-dismiss="modal">
                                 ×
                             </button>
-                            <h4 class="modal-title">Register Form</h4>
+                            <h4 class="modal-title">Register as User</h4>
                         </div>
                         <div class="modal-body">
                             @*input form*@
-                            @using (Html.BeginForm("Register", "Login", FormMethod.Post, new { @id = "SignUpBox" }))
+                            @using (Html.BeginForm("LoginPage", "Login", FormMethod.Post, new { @id = "SignUpBox", enctype = "multipart/form-data" }))
                             {
                                 @Html.AntiForgeryToken()
 
-                                //add image
+                                //image preview
+                                <div class="imagePart">
+                                <label for="imagePreview" class="fieldName"> Image Preview: </label>
+                                <div class="imgPreview" id="imgPreview">
+                                    <img class="imgPreview-img"
+                                         id="yourImage"
+                                         @*src="/Images/testImage.PNG"*@
+                                         src="@ViewBag.ImageSrc"
+                                         alt="Avatar" />
+                                </div>
+                                @*//add image*@
+                                <label for="image" class="fieldName">Your Profile Pic:</label>
+                                <input type="file" name="inputFile" id="inputFile" accept="image/*" />
+                                    </div>
+                                <br />
 
                                 //input username
-                                <div class="form-group">
-                                    @Html.LabelFor(model => model.userName, htmlAttributes: new { @class = "control-label col-md-2" })
-                                    <div class="col-md-10">
-                                        @Html.EditorFor(model => model.userName, new { htmlAttributes = new { @class = "form-control" } })
-                                    </div>
+
+                                <label for="userName" class="fieldName">User Name:</label>
+                                @Html.EditorFor(model => model.userName, new { htmlAttributes = new { @class = "form-control registerInput", @placeholder = "User Name" } })
+                                <div class="text-danger">
+                                    @Html.ValidationMessageFor(model => model.userName, "", new { @class = "text-danger" })
                                 </div>
 
+
                                 //input emailAddress
-                                <div class="form-group">
-                                    @Html.LabelFor(model => model.emailAddress, htmlAttributes: new { @class = "control-label col-md-2" })
-                                    <div class="col-md-10">
-                                        @Html.EditorFor(model => model.emailAddress, new { htmlAttributes = new { @class = "form-control" } })
-                                    </div>
+                                <label for="emailAddress" class="fieldName">Email Adress:</label>
+                                @Html.EditorFor(model => model.emailAddress, new { htmlAttributes = new { @class = "form-control registerInput", @placeholder = "Email Id" } })
+                                <div class="text-danger">
+                                    @Html.ValidationMessageFor(model => model.emailAddress, "", new { @class = "text-danger" })
                                 </div>
 
                                 //input password
-                                <div class="form-group">
-                                    @Html.LabelFor(model => model.password, htmlAttributes: new { @class = "control-label col-md-2" })
-                                    <div class="col-md-10">
-                                        @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control" } })
-                                    </div>
+                                <label for="password" class="fieldName">Password:</label>
+                                @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control registerInput", @placeholder = "Password" } })
+
+                                <div class="text-danger">
+                                    @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
                                 </div>
 
                                 //input confirm password
-                                <div class="form-group">
-                                    @Html.LabelFor(model => model.confirmPassword, htmlAttributes: new { @class = "control-label col-md-2" })
-                                    <div class="col-md-10">
-                                        @Html.EditorFor(model => model.confirmPassword, new { htmlAttributes = new { @class = "form-control" } })
-                                    </div>
+                                <label for="confirmPassword" class="fieldName">Confirm Password:</label>
+                                    @Html.EditorFor(model => model.confirmPassword, new { htmlAttributes = new { @class = "form-control registerInput", @placeholder = "Password" } })
+                            
+                                <div class="text-danger">
+                                    @Html.ValidationMessageFor(model => model.confirmPassword, "", new { @class = "text-danger" })
                                 </div>
 
+                                <div class="text-success">
+                                    @ViewBag.RegisterMessage
+                                </div>
+                                <div class="text-danger">
+                                    @ViewBag.RegisterFailMessage
+                                </div>
 
-                                @*<div class="form-group">
-                <input class="form-control" placeholder="Login Password"
-                       type="password" id="inputPassword" />
-            </div>*@
 
 
                                 <div class="modal-footer">
@@ -105,8 +132,6 @@
                                 </div>
 
                                 <div>
-                                    @*sign up message*@
-
 
                                     @ViewBag.LogInMessage
 
@@ -118,66 +143,80 @@
 
                 </div>
             </div>
+        
 
 
-            @using (Html.BeginForm("Authorize", "Login", FormMethod.Post, new { @id = "loginBox" }))
-            //action name, controller name, form method, html attribute
-            {
-                <div>
-                    <table>
-                        @*UserID label and input:*@
-                        <tr>
-                            <td>
-                                @Html.LabelFor(model => model.userName, new { @id = "useridlbl" })
-                            </td>
-                            <td>
-                                @Html.TextBoxFor(model => model.userName, new { @id = "useridtextbox", @Value = ViewBag.LoginID })
+            <div class="loginBox">
+                @using (Html.BeginForm("Authorize", "Login", FormMethod.Post, new { @id = "loginBox" }))
+                //action name, controller name, form method, html attribute
+                {
 
-                            </td>
-                        </tr>
+                    @*User name label and input:*@
+                    <div class="input-group">
+                        @Html.TextBoxFor(model => model.userName, new { @id = "useridtextbox", @class = "form-control loginInput", @placeholder = "Username or Email" })
+                        <div class="input-group-addon icons">
+                          
+                                <i class="fas fa-user"></i>
+                          
+                        </div>
+                    </div>
+                    <br>
+                    @*Password label and input*@
+                    <div class="input-group">
+                        @Html.TextBoxFor(model => model.password, null, new { @id = "passwordtextbox", @class = "form-control loginInput", @placeholder = "Password" })
+                        <div class="input-group-addon icons">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                    </div>
 
-                        @*Password label and input*@
-                        <tr>
-                            <td>
-                                @Html.LabelFor(model => model.password, new { @id = "passwordlbl" })
-                            </td>
-                            <td>
-                                @Html.TextBoxFor(model => model.password, null, new { @id = "passwordtextbox" })
-                            </td>
-                        </tr>
+                    @*login error message*@
+                    <div>
+                        <div id="errorMessage" class="text-danger">
+                            @ViewBag.LoginErrorMessage
 
-                        @*login error message*@
-                        <tr>
-                            <td id="errorMessage" class="text-danger">
-                                @ViewBag.LoginErrorMessage
-
-                            </td>
-                        </tr>
-
-                    </table>
-                </div>
+                        </div>
+                    </div>
 
 
-                <div id="loginButton">
-          
 
 
-                    <input type="submit" name="name" value="Log In" id="LoginBtn_1">
-                </div>
-            }
-        </div>
-        <div id="forgot">
-            <div id="forgotUsername">
-                @Html.ActionLink("Forgot Username", "ForgotLoginID", "Login")
+                    <br>
+                    <div id="loginButton">
+
+
+
+                        <input type="submit" name="name" value="Log In" id="LoginBtn_1" class="btn btn-primary">
+                    </div>
+                }
             </div>
-            <div id="forgotPassword">
-                @Html.ActionLink("Forgot Password", "ForgotPassword", "Login")
-            </div>
-        </div>
-   
-    </div>
+
+
+    @*</div>*@
 
 </body>
+@*script for uploading image *@
+<script>
+    const inputFile = document.getElementById("inputFile");
+    const previewCont = document.getElementById("imgPreview");
+    const previewImage = previewCont.querySelector(".imgPreview-img");
 
+    inputFile.addEventListener("change", function () {
+        const file = this.files[0];
+
+        if (file) {
+            const fileReader = new FileReader();
+            previewImage.style.display = "inline";
+
+            fileReader.addEventListener("load", function () {
+                previewImage.setAttribute("src", this.result);
+            });
+
+            fileReader.readAsDataURL(file);
+        }
+    });
+</script>
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/jqueryval")
+@Scripts.Render("~/bundles/bootstrap")
 </html>
 
