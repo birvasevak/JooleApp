@@ -22,50 +22,6 @@ namespace JooleApp.Repository.Repositories
             dbb = context;
         }
 
-        public Dictionary<int, List<Dictionary<String, String>>> getProductDetails(int productID)
-        {
-            using (var db = new JooleAppEntities())
-            {
-                var productDetails = db.tblProducts.Join(
-                                        db.tblProductAttributes,
-                                        prod => prod.productID,
-                                        patt => patt.productID,
-                                        (prod, patt) => new { prod, patt }
-                                     ).Where(
-                                        p => p.prod.productID == productID
-                                     ).Join(
-                                        db.tblAttributes,
-                                        pattC => pattC.patt.attributeID,
-                                        att => att.attributeID,
-                                        (pattC, att) => new { att.attributeName, att.isTechSpec, pattC }
-                                     ).ToList();
-
-                /*Dictionary<int, Dictionary<String, String>> prodAtts = new Dictionary<int, Dictionary<string, string>>();*/
-
-                Dictionary<int, List<Dictionary<String, String>>> prodAtts = new Dictionary<int, List<Dictionary<string, string>>>();
-
-                foreach (var prod in productDetails)
-                {
-                    if (prodAtts.ContainsKey(prod.pattC.prod.productID))
-                    {
-                        prodAtts[prod.pattC.prod.productID][1].Add(prod.attributeName, prod.pattC.patt.attributeValue);
-                    }
-                    else
-                    {
-                        prodAtts[prod.pattC.prod.productID] = new List<Dictionary<string, string>>();
-                        prodAtts[prod.pattC.prod.productID].Add(new Dictionary<string, string>());
-                        prodAtts[prod.pattC.prod.productID].Add(new Dictionary<string, string>());
-                        prodAtts[prod.pattC.prod.productID][0].Add("ImagePath", prod.pattC.prod.imagePath);
-                        prodAtts[prod.pattC.prod.productID][0].Add("ModelName", prod.pattC.prod.modelName);
-                        prodAtts[prod.pattC.prod.productID][0].Add("ModelYear", prod.pattC.prod.modelYear);
-                        prodAtts[prod.pattC.prod.productID][0].Add("ProductName", prod.pattC.prod.productName);
-                    }
-                }
-
-                return prodAtts;
-            }
-        }
-
         public List<tblProduct> getProductDescription(int productID)
         {
             List<tblProduct> prodDet = null;
@@ -79,7 +35,7 @@ namespace JooleApp.Repository.Repositories
             return prodDet;
         }
 
-        public Dictionary<string, string> des(int productID)
+        public Dictionary<string, string> getProductType(int productID)
         {
             using (var db = new JooleAppEntities())
             {
@@ -88,7 +44,7 @@ namespace JooleApp.Repository.Repositories
                            on p.productID equals pa.productID
                            join a in dbb.tblAttributes
                            on pa.attributeID equals a.attributeID
-                           where p.productID == productID && (a.attributeName == "Mount" || a.attributeName == "Application")
+                           where (p.productID == productID && a.isTechSpec == false)
                            select new { p, pa, a }
                            );
 
@@ -97,6 +53,61 @@ namespace JooleApp.Repository.Repositories
                 foreach (var d in des)
                 {
                     newD.Add(d.a.attributeName, d.pa.attributeValue);
+                }
+                return newD;
+            }
+        }
+
+        public Dictionary<string, string> getTechnicalSpec(int productID)
+        {
+            using (var db = new JooleAppEntities())
+            {
+                var des = (from p in dbb.tblProducts
+                           join pa in dbb.tblProductAttributes
+                           on p.productID equals pa.productID
+                           join a in dbb.tblAttributes
+                           on pa.attributeID equals a.attributeID
+                           join t in dbb.tblTechSpecFilters
+                           on pa.attributeID equals t.attributeID
+                           where (p.productID == productID && a.isTechSpec == true && t.minVal == t.maxVal)
+                           select new { p.productID, a.attributeName, pa.attributeValue } 
+                           ).Distinct();
+
+                Dictionary<string, string> newD = new Dictionary<string, string>();
+
+                foreach (var d in des)
+                {
+                    newD.Add(d.attributeName, d.attributeValue);
+                }
+                return newD;
+            }
+        }
+
+        public Dictionary<string, List<string>> getTechSpecWithRange(int productID)
+        {
+            using (var db = new JooleAppEntities())
+            {
+                var des = (from p in dbb.tblProducts
+                           join pa in dbb.tblProductAttributes
+                           on p.productID equals pa.productID
+                           join a in dbb.tblAttributes
+                           on pa.attributeID equals a.attributeID
+                           join t in dbb.tblTechSpecFilters
+                           on pa.attributeID equals t.attributeID
+                           where (p.productID == productID && a.isTechSpec == true && t.minVal != t.maxVal)
+                           select new { p.productID, a.attributeName, t.minVal, t.maxVal }
+                           ).Distinct();
+
+                Dictionary<string, List<string>> newD = new Dictionary<string, List<string>>();
+                
+
+
+                foreach (var d in des)
+                {
+                    List<string> rangeList = new List<string>();
+                    rangeList.Add(d.minVal);
+                    rangeList.Add(d.maxVal);
+                    newD.Add(d.attributeName, rangeList);
                 }
                 return newD;
             }
