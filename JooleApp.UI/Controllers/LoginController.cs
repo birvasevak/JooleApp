@@ -46,9 +46,19 @@ namespace JooleApp.UI.Controllers
         public ActionResult Authorize(JooleApp.Domain.tblUser userModel)
         {
             HttpCookie cookie = new HttpCookie("tblJooleUser");
+            var userDetails= service.GetUserNameAuth(userModel.userName, userModel.password).FirstOrDefault(); 
 
-            var userDetails = service.GetUserAuth(userModel.userName, userModel.password).FirstOrDefault();
-              
+            //user name login
+            if (userModel.userName!=null) { 
+                 userDetails = service.GetUserNameAuth(userModel.userName, userModel.password).FirstOrDefault(); 
+            }
+
+            //email login
+            if (userModel.emailAddress != null)
+            {
+                 userDetails = service.GetUserEmailAuth(userModel.emailAddress, userModel.password).FirstOrDefault();
+            }
+
             if (userDetails == null)
             { //login failed
                 
@@ -58,9 +68,11 @@ namespace JooleApp.UI.Controllers
             else
             { //login success
                 System.Web.Security.FormsAuthentication.SetAuthCookie(userModel.userName, false);
+                System.Web.Security.FormsAuthentication.SetAuthCookie(userModel.emailAddress, false);
 
                 Session["userID"] = userDetails.userID;
                 Session["userName"] = userDetails.userName;
+                Session["emailAddress"] = userDetails.emailAddress;
                 //if (userModel.RememberMe)
                 //{
 
