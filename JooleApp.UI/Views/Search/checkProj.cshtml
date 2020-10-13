@@ -1,32 +1,49 @@
 ﻿@model JooleApp.Services.ModelService.ProductDetailService
 @{
     ViewBag.Title = "Project Details";
-    Layout = null;
+    Layout = "~/Views/Shared/_ProductsLayout.cshtml";
 
-    Dictionary<int, List<Dictionary<String, String>>> products = ViewData["ProductsDetails"] as Dictionary<int, List<Dictionary<String, String>>>;
 
-    List<JooleApp.Domain.tblProduct> des = ViewData["description"] as List<JooleApp.Domain.tblProduct>;
+    List<JooleApp.Domain.tblProduct> description = ViewData["description"] as List<JooleApp.Domain.tblProduct>;
 
-    Dictionary<string, string> type = ViewData["type"] as Dictionary<string, string>;
+    Dictionary<string, string> productType = ViewData["productType"] as Dictionary<string, string>;
+
+    Dictionary<string, string> techSpec = ViewData["techSpec"] as Dictionary<string, string>;
+
+    Dictionary<string, List<string>> withRange = ViewData["withRange"] as Dictionary<string, List<string>>;
 
     Styles.Render("~/ProductDetail/css");
 }
-<link rel="stylesheet" href="~/Content/JooleStyles/ProductDetails.css"/>
-
+<link rel="stylesheet" href="~/Content/JooleStyles/ProductDetails.css" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="productDetailsNavbar">
+        <div class="navbar-nav" id="detailsNav">
+            <a class="nav-item nav-link" href="#">Product Summary <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link active" href="#">Product Details</a>
+            <a class="nav-item nav-link" href="#">Product Documentation</a>
+            <a class="nav-item nav-link" href="#">Contact</a>
+        </div>
+    </div>
+</nav>
 
 <div class="container">
-    <h5>Product Details</h5>
+    <h5 class="pageHeading">Product Details</h5>
     <div class="row show-grid justify-content-around">
         <div class="col-md-6">
-            <hr/>
+            <hr />
             <h8>DESCRIPTION</h8>
             <table id="description_section1" class="keyvalue">
                 <tbody>
-                    @if (des != null)
+                    @if (description != null)
                     {
-                        foreach (var d in des)
+                        foreach (var d in description)
                         {
                             <tr>
                                 <th>Product Name</th>
@@ -48,9 +65,9 @@
             <h8>TYPE</h8>
             <table id="description_section1" class="keyvalue">
                 <tbody>
-                    @if (des != null)
+                    @if (description != null)
                     {
-                        foreach (var d in des)
+                        foreach (var d in description)
                         {
                             <tr>
                                 <th>Model Year</th>
@@ -58,9 +75,9 @@
                             </tr>
                         }
                     }
-                    @if (type != null)
+                    @if (productType != null)
                     {
-                        foreach (KeyValuePair<string, string> t in type)
+                        foreach (KeyValuePair<string, string> t in productType)
                         {
                             <tr>
                                 <th>@t.Key</th>
@@ -73,37 +90,48 @@
             </table>
         </div>
         <div class="col-md-6 col-md-offset-2">
-            <hr/>
+            <hr />
             <h8>TECHNICAL SPECIFICATIONS</h8>
             <table id="description_section1" class="keyvalue">
                 <tbody>
-                    @if (products != null)
+                    @if (withRange != null)
                     {
-                        foreach (KeyValuePair<int, List<Dictionary<String, String>>> prod in products)
+                        foreach (KeyValuePair<string, List<string>> r in withRange)
                         {
-                            
-                                foreach (KeyValuePair<String, String> perProd in prod.Value[1])
-                                {
-                                    if (perProd.Key != "Mount" && perProd.Key != "Application")
-                                    {
-                                        <tr>
-                                            <th>@perProd.Key</th>
-                                            <td>@perProd.Value</td>
-                                        </tr>
-                                    }
-
-                                }
-                            
+                            <tr>
+                                <th>@r.Key</th>
+                                <th>Min</th>
+                                <td>@r.Value[0]</td>
+                                <th>Max</th>
+                                <td>@r.Value[1]</td>
+                            </tr>
                         }
+                    }
+
+                    @if (techSpec != null)
+                    {
+                        foreach (KeyValuePair<string, string> t in techSpec)
+                        {
+                            <tr>
+                                <th>@t.Key</th>
+                                <td>@t.Value</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+
+                        }
+
+
                     }
                     else
                     {
                         <tr>prduct is null</tr>
                     }
+
                 </tbody>
             </table>
         </div>
     </div>
 </div>
-
 

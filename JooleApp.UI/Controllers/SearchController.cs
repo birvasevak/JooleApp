@@ -44,19 +44,17 @@ namespace JooleApp.UI.Controllers
         public ActionResult GetSubCategoryList(int categoryId)
         {
             List<tblSubCategory> selectList = service.GetbyCategoryID(categoryId).ToList<tblSubCategory>();
-            //IEnumerable<JooleAppEntities> selectLi = service.GetAll().Where(m => m.categoryID == categoryId).;
             ViewBag.SubCategoryList = new SelectList(selectList, "subCategoryID", "categoryName");
-
             return PartialView("DisplaySubCategories");
-            //return Json(selectList, JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult checkProj()
         {
-            int productID = 0;
-            ViewData["ProductsDetails"] = detailService.GetProductDetails(productID);
+            int productID = 1;
             ViewData["description"] = detailService.getProductDescription(productID);
-            ViewData["type"] = detailService.des(productID);
+            ViewData["productType"] = detailService.getProductType(productID);
+            ViewData["techSpec"] = detailService.getTechnicalSpec(productID);
+            ViewData["withRange"] = detailService.getTechSpecWithRange(productID);
             return View();
         }
 
