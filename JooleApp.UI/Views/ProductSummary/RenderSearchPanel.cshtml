@@ -1,22 +1,45 @@
-﻿@{ 
-    Dictionary<String, List<String>> setData = ViewData["SearchData"] as Dictionary<String, List<String>>;
-}
+﻿@model JooleApp.UI.DataModels.ProductDetail
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    <div class="details">
-        @foreach(KeyValuePair<String, List<String>> attName in setData)
+
+<div class="details">
+
+    <div class="attType">
+        Technical Specifications :
+    </div>
+
+
+    @foreach (KeyValuePair<String, List<String>> attName in Model.searchPanel)
+    {
+        if (@attName.Value[0] != @attName.Value[1])
         {
+            <div class="attName">@attName.Key :</div>
             <div class="slider">
-                <p>@attName.Key</p>
-                <input type="range" min=@attName.Value[0] max=@attName.Value[1] value=@attName.Value[1] class="slider" id="myRange">
+                @{
+                    var temp2 = (attName.Key).Replace(" ", "_");
+                    var temp = "minVal_" + temp2;
+                }
+
+                <div class="leftRight" id=@temp>
+                    @attName.Value[0]
+                </div>
+                <input type="range" min=0 max=100 value=50 class="sliderInside" id=@temp2>
+
+                @{
+                    temp = "maxVal_" + temp2;
+                }
+
+
+                <div class="leftRight" id=@temp>
+                    @attName.Value[1]
+                </div>
             </div>
         }
+    }
 
-    </div>
-    
-}
+    <button class="searchButton">
+        Search
+    </button>
+</div>
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
