@@ -107,7 +107,10 @@ namespace JooleApp.Repository.Repositories
                     List<string> rangeList = new List<string>();
                     rangeList.Add(d.minVal);
                     rangeList.Add(d.maxVal);
-                    newD.Add(d.attributeName, rangeList);
+                    if (!newD.ContainsKey(d.attributeName))
+                    {
+                        newD.Add(d.attributeName, rangeList);
+                    }
                 }
                 return newD;
             }

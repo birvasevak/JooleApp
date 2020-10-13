@@ -34,13 +34,11 @@
         var subCatID;
         $("#CategoryId").change(function () {
             catId = $(this).val();
-            debugger
             $.ajax({
                 type: "POST",
                 url: "/Search/GetSubCategoryList?categoryId=" + catId,
                 contentType: "html",
                 success: function (response) {
-                    debugger
                     $("#SubCategoryID").empty();
                     $("#SubCategoryID").append(response);
 
