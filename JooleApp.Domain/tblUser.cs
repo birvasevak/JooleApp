@@ -11,11 +11,22 @@ namespace JooleApp.Domain
 {
     using System;
     using System.Collections.Generic;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
     public partial class tblUser
     {
+        /*public int userID { get; set; }
+        public string userName { get; set; }
+        public string password { get; set; }
+        public string emailAddress { get; set; }
+        public string firstName { get; set; }
+        public string lastName { get; set; }
+        public string userAddress { get; set; }
+        public string phone { get; set; }
+        public string userImage { get; set; }*/
+
         public int userID { get; set; }
 
         [Required(ErrorMessage = "User name is required.")]
@@ -37,7 +48,5 @@ namespace JooleApp.Domain
         public string userAddress { get; set; }
         public string phone { get; set; }
         public string userImage { get; set; }
-
-       
     }
 }

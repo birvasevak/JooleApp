@@ -4,32 +4,32 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Alias="Self" Namespace="JooleAppModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012">
+    <Schema Namespace="JooleAppModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="tblAttribute">
           <Key>
             <PropertyRef Name="attributeID" />
           </Key>
-          <Property Name="attributeID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-          <Property Name="attributeName" MaxLength="50" Type="varchar" />
+          <Property Name="attributeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="attributeName" Type="varchar" MaxLength="50" />
           <Property Name="isTechSpec" Type="bit" />
         </EntityType>
         <EntityType Name="tblCategory">
           <Key>
             <PropertyRef Name="categoryID" />
           </Key>
-          <Property Name="categoryID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-          <Property Name="categoryName" MaxLength="50" Type="varchar" />
+          <Property Name="categoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="categoryName" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="tblProduct">
           <Key>
             <PropertyRef Name="productID" />
           </Key>
-          <Property Name="productID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="productID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="subCategoryID" Type="int" />
-          <Property Name="productName" MaxLength="50" Type="varchar" />
-          <Property Name="imagePath" MaxLength="50" Type="varchar" />
-          <Property Name="modelName" MaxLength="50" Type="varchar" />
-          <Property Name="modelYear" MaxLength="50" Type="varchar" />
+          <Property Name="productName" Type="varchar" MaxLength="50" />
+          <Property Name="imagePath" Type="varchar" MaxLength="50" />
+          <Property Name="modelName" Type="varchar" MaxLength="50" />
+          <Property Name="modelYear" Type="varchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'JooleApp.dbo.tblProductAttribute' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -38,17 +38,17 @@ warning 6002: The table/view 'JooleApp.dbo.tblProductAttribute' does not have a 
             <PropertyRef Name="productID" />
             <PropertyRef Name="attributeID" />
           </Key>
-          <Property Name="productID" Nullable="false" Type="int" />
-          <Property Name="attributeID" Nullable="false" Type="int" />
-          <Property Name="attributeValue" MaxLength="50" Type="varchar" />
+          <Property Name="productID" Type="int" Nullable="false" />
+          <Property Name="attributeID" Type="int" Nullable="false" />
+          <Property Name="attributeValue" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="tblSubCategory">
           <Key>
             <PropertyRef Name="subCategoryID" />
           </Key>
-          <Property Name="subCategoryID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="subCategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="categoryID" Type="int" />
-          <Property Name="categoryName" MaxLength="50" Type="varchar" />
+          <Property Name="categoryName" Type="varchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'JooleApp.dbo.tblSubCategoryAttribute' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -57,8 +57,8 @@ warning 6002: The table/view 'JooleApp.dbo.tblSubCategoryAttribute' does not hav
             <PropertyRef Name="subCategoryID" />
             <PropertyRef Name="attributeID" />
           </Key>
-          <Property Name="subCategoryID" Nullable="false" Type="int" />
-          <Property Name="attributeID" Nullable="false" Type="int" />
+          <Property Name="subCategoryID" Type="int" Nullable="false" />
+          <Property Name="attributeID" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'JooleApp.dbo.tblTechSpecFilter' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -67,28 +67,28 @@ warning 6002: The table/view 'JooleApp.dbo.tblTechSpecFilter' does not have a pr
             <PropertyRef Name="subCategoryID" />
             <PropertyRef Name="attributeID" />
           </Key>
-          <Property Name="subCategoryID" Nullable="false" Type="int" />
-          <Property Name="attributeID" Nullable="false" Type="int" />
-          <Property Name="maxVal" MaxLength="50" Type="varchar" />
-          <Property Name="minVal" MaxLength="50" Type="varchar" />
+          <Property Name="subCategoryID" Type="int" Nullable="false" />
+          <Property Name="attributeID" Type="int" Nullable="false" />
+          <Property Name="maxVal" Type="varchar" MaxLength="50" />
+          <Property Name="minVal" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="tblUser">
           <Key>
             <PropertyRef Name="userID" />
           </Key>
-          <Property Name="userID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-          <Property Name="userName" MaxLength="50" Type="varchar" />
-		  <Property Name="password" Type="varchar" MaxLength="50" />
-          <Property Name="emailAddress" MaxLength="50" Type="varchar" />
-          <Property Name="firstName" MaxLength="50" Type="varchar" />
-          <Property Name="lastName" MaxLength="50" Type="varchar" />
-          <Property Name="userAddress" MaxLength="50" Type="varchar" />
-          <Property Name="phone" MaxLength="10" Type="varchar" />
-          <Property Name="userImage" MaxLength="100" Type="varchar" />
+          <Property Name="userID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userName" Type="varchar" MaxLength="50" />
+          <Property Name="emailAddress" Type="varchar" MaxLength="50" />
+          <Property Name="firstName" Type="varchar" MaxLength="50" />
+          <Property Name="lastName" Type="varchar" MaxLength="50" />
+          <Property Name="userAddress" Type="varchar" MaxLength="50" />
+          <Property Name="phone" Type="varchar" MaxLength="10" />
+          <Property Name="userImage" Type="varchar" MaxLength="100" />
+          <Property Name="password" Type="varchar" MaxLength="50" />
         </EntityType>
         <Association Name="FK__tblProduc__attri__32E0915F">
-          <End Type="Self.tblAttribute" Multiplicity="1" Role="tblAttribute" />
-          <End Type="Self.tblProductAttribute" Multiplicity="*" Role="tblProductAttribute" />
+          <End Role="tblAttribute" Type="Self.tblAttribute" Multiplicity="1" />
+          <End Role="tblProductAttribute" Type="Self.tblProductAttribute" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tblAttribute">
               <PropertyRef Name="attributeID" />
@@ -99,8 +99,8 @@ warning 6002: The table/view 'JooleApp.dbo.tblTechSpecFilter' does not have a pr
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__tblProduc__produ__31EC6D26">
-          <End Type="Self.tblProduct" Multiplicity="1" Role="tblProduct" />
-          <End Type="Self.tblProductAttribute" Multiplicity="*" Role="tblProductAttribute" />
+          <End Role="tblProduct" Type="Self.tblProduct" Multiplicity="1" />
+          <End Role="tblProductAttribute" Type="Self.tblProductAttribute" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tblProduct">
               <PropertyRef Name="productID" />
@@ -111,8 +111,8 @@ warning 6002: The table/view 'JooleApp.dbo.tblTechSpecFilter' does not have a pr
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__tblProduc__subCa__2B3F6F97">
-          <End Type="Self.tblSubCategory" Multiplicity="0..1" Role="tblSubCategory" />
-          <End Type="Self.tblProduct" Multiplicity="*" Role="tblProduct" />
+          <End Role="tblSubCategory" Type="Self.tblSubCategory" Multiplicity="0..1" />
+          <End Role="tblProduct" Type="Self.tblProduct" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tblSubCategory">
               <PropertyRef Name="subCategoryID" />
@@ -123,8 +123,8 @@ warning 6002: The table/view 'JooleApp.dbo.tblTechSpecFilter' does not have a pr
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__tblSubCat__attri__300424B4">
-          <End Type="Self.tblAttribute" Multiplicity="1" Role="tblAttribute" />
-          <End Type="Self.tblSubCategoryAttribute" Multiplicity="*" Role="tblSubCategoryAttribute" />
+          <End Role="tblAttribute" Type="Self.tblAttribute" Multiplicity="1" />
+          <End Role="tblSubCategoryAttribute" Type="Self.tblSubCategoryAttribute" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tblAttribute">
               <PropertyRef Name="attributeID" />
@@ -135,8 +135,8 @@ warning 6002: The table/view 'JooleApp.dbo.tblTechSpecFilter' does not have a pr
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__tblSubCat__categ__286302EC">
-          <End Type="Self.tblCategory" Multiplicity="0..1" Role="tblCategory" />
-          <End Type="Self.tblSubCategory" Multiplicity="*" Role="tblSubCategory" />
+          <End Role="tblCategory" Type="Self.tblCategory" Multiplicity="0..1" />
+          <End Role="tblSubCategory" Type="Self.tblSubCategory" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tblCategory">
               <PropertyRef Name="categoryID" />
@@ -147,8 +147,8 @@ warning 6002: The table/view 'JooleApp.dbo.tblTechSpecFilter' does not have a pr
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__tblSubCat__subCa__2F10007B">
-          <End Type="Self.tblSubCategory" Multiplicity="1" Role="tblSubCategory" />
-          <End Type="Self.tblSubCategoryAttribute" Multiplicity="*" Role="tblSubCategoryAttribute" />
+          <End Role="tblSubCategory" Type="Self.tblSubCategory" Multiplicity="1" />
+          <End Role="tblSubCategoryAttribute" Type="Self.tblSubCategoryAttribute" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tblSubCategory">
               <PropertyRef Name="subCategoryID" />
@@ -159,8 +159,8 @@ warning 6002: The table/view 'JooleApp.dbo.tblTechSpecFilter' does not have a pr
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__tblTechSp__attri__35BCFE0A">
-          <End Type="Self.tblAttribute" Multiplicity="1" Role="tblAttribute" />
-          <End Type="Self.tblTechSpecFilter" Multiplicity="*" Role="tblTechSpecFilter" />
+          <End Role="tblAttribute" Type="Self.tblAttribute" Multiplicity="1" />
+          <End Role="tblTechSpecFilter" Type="Self.tblTechSpecFilter" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tblAttribute">
               <PropertyRef Name="attributeID" />
@@ -171,8 +171,8 @@ warning 6002: The table/view 'JooleApp.dbo.tblTechSpecFilter' does not have a pr
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__tblTechSp__subCa__34C8D9D1">
-          <End Type="Self.tblSubCategory" Multiplicity="1" Role="tblSubCategory" />
-          <End Type="Self.tblTechSpecFilter" Multiplicity="*" Role="tblTechSpecFilter" />
+          <End Role="tblSubCategory" Type="Self.tblSubCategory" Multiplicity="1" />
+          <End Role="tblTechSpecFilter" Type="Self.tblTechSpecFilter" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tblSubCategory">
               <PropertyRef Name="subCategoryID" />
@@ -210,36 +210,36 @@ warning 6002: The table/view 'JooleApp.dbo.tblTechSpecFilter' does not have a pr
     FROM [dbo].[tblTechSpecFilter] AS [tblTechSpecFilter]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK__tblProduc__attri__32E0915F" Association="Self.FK__tblProduc__attri__32E0915F">
-            <End EntitySet="tblAttribute" Role="tblAttribute" />
-            <End EntitySet="tblProductAttribute" Role="tblProductAttribute" />
+            <End Role="tblAttribute" EntitySet="tblAttribute" />
+            <End Role="tblProductAttribute" EntitySet="tblProductAttribute" />
           </AssociationSet>
           <AssociationSet Name="FK__tblProduc__produ__31EC6D26" Association="Self.FK__tblProduc__produ__31EC6D26">
-            <End EntitySet="tblProduct" Role="tblProduct" />
-            <End EntitySet="tblProductAttribute" Role="tblProductAttribute" />
+            <End Role="tblProduct" EntitySet="tblProduct" />
+            <End Role="tblProductAttribute" EntitySet="tblProductAttribute" />
           </AssociationSet>
           <AssociationSet Name="FK__tblProduc__subCa__2B3F6F97" Association="Self.FK__tblProduc__subCa__2B3F6F97">
-            <End EntitySet="tblSubCategory" Role="tblSubCategory" />
-            <End EntitySet="tblProduct" Role="tblProduct" />
+            <End Role="tblSubCategory" EntitySet="tblSubCategory" />
+            <End Role="tblProduct" EntitySet="tblProduct" />
           </AssociationSet>
           <AssociationSet Name="FK__tblSubCat__attri__300424B4" Association="Self.FK__tblSubCat__attri__300424B4">
-            <End EntitySet="tblAttribute" Role="tblAttribute" />
-            <End EntitySet="tblSubCategoryAttribute" Role="tblSubCategoryAttribute" />
+            <End Role="tblAttribute" EntitySet="tblAttribute" />
+            <End Role="tblSubCategoryAttribute" EntitySet="tblSubCategoryAttribute" />
           </AssociationSet>
           <AssociationSet Name="FK__tblSubCat__categ__286302EC" Association="Self.FK__tblSubCat__categ__286302EC">
-            <End EntitySet="tblCategory" Role="tblCategory" />
-            <End EntitySet="tblSubCategory" Role="tblSubCategory" />
+            <End Role="tblCategory" EntitySet="tblCategory" />
+            <End Role="tblSubCategory" EntitySet="tblSubCategory" />
           </AssociationSet>
           <AssociationSet Name="FK__tblSubCat__subCa__2F10007B" Association="Self.FK__tblSubCat__subCa__2F10007B">
-            <End EntitySet="tblSubCategory" Role="tblSubCategory" />
-            <End EntitySet="tblSubCategoryAttribute" Role="tblSubCategoryAttribute" />
+            <End Role="tblSubCategory" EntitySet="tblSubCategory" />
+            <End Role="tblSubCategoryAttribute" EntitySet="tblSubCategoryAttribute" />
           </AssociationSet>
           <AssociationSet Name="FK__tblTechSp__attri__35BCFE0A" Association="Self.FK__tblTechSp__attri__35BCFE0A">
-            <End EntitySet="tblAttribute" Role="tblAttribute" />
-            <End EntitySet="tblTechSpecFilter" Role="tblTechSpecFilter" />
+            <End Role="tblAttribute" EntitySet="tblAttribute" />
+            <End Role="tblTechSpecFilter" EntitySet="tblTechSpecFilter" />
           </AssociationSet>
           <AssociationSet Name="FK__tblTechSp__subCa__34C8D9D1" Association="Self.FK__tblTechSp__subCa__34C8D9D1">
-            <End EntitySet="tblSubCategory" Role="tblSubCategory" />
-            <End EntitySet="tblTechSpecFilter" Role="tblTechSpecFilter" />
+            <End Role="tblSubCategory" EntitySet="tblSubCategory" />
+            <End Role="tblTechSpecFilter" EntitySet="tblTechSpecFilter" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
