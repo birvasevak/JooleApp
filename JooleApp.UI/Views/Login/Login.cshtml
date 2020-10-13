@@ -1,0 +1,21 @@
+﻿@model IEnumerable<JooleApp.Domain.tblUser>
+
+@{
+    ViewBag.Title = "Login";
+}
+
+@using (Html.BeginForm())
+{
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.[userName].OrderTrackingNumber</td>
+            <td>@item.[emailAddress].OrderDate</td>
+            <td>@item.[firstName].CustID</td>
+            <td>@item.[lastName].CustName</td>
+            <td>@item.[phone].CustOfficeAddress1</td>
+            <td>@item.[password].OrderRouteNumber</td>
+            <td>
+        </tr>}
+})
+

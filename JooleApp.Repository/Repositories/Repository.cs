@@ -1,4 +1,4 @@
-﻿using JooleApp.Domain;
+﻿ using JooleApp.Domain;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -35,6 +35,11 @@ namespace JooleApp.Repository.Repositories
         public T GetbyId(int Id)
         {
             return entities.Find(Id);
+        }
+
+        public T GetByPredicate(Func<T, bool> predicate)
+        {
+            return entities.FirstOrDefault(predicate);
         }
 
         public void Insert(T entity)

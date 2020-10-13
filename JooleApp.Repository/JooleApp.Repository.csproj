@@ -54,8 +54,10 @@
     <Compile Include="IProductSummaryRepo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\ProductCategoryRepo.cs" />
+    <Compile Include="Repositories\ProductSubCategoryRepo.cs" />
     <Compile Include="Repositories\ProductSummaryRepo.cs" />
     <Compile Include="Repositories\Repository.cs" />
+    <Compile Include="Repositories\UserRepo.cs" />
     <Compile Include="StaticUnitOfWork.cs" />
     <Compile Include="UnitOfWork.cs" />
   </ItemGroup>

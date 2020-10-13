@@ -12,6 +12,7 @@ namespace JooleApp.Domain
     using System;
     using System.Collections.Generic;
     
+    
     public partial class tblCategory
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -25,5 +26,7 @@ namespace JooleApp.Domain
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tblSubCategory> tblSubCategories { get; set; }
+
+        public virtual List<tblSubCategory> subCategories { get; set; }
     }
 }
