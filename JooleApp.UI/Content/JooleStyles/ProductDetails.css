@@ -29,3 +29,16 @@
 .keyvalue tr:last-child {
     border-bottom: 1px solid #e7e7e7;
 }
+
+.pageHeading {
+    color: #337ab7;
+    margin-top: 10px;
+}
+
+#detailsNav {
+    margin-left: 65px;
+}
+
+#detailsNav a {
+    color: #337ab7;
+}

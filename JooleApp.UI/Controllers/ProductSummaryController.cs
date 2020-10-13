@@ -1,5 +1,7 @@
-﻿using JooleApp.Services.ModelService;
+﻿using JooleApp.Domain;
+using JooleApp.Services.ModelService;
 using JooleApp.UI.DataModels;
+using JooleApp.UI.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,13 +14,17 @@ namespace JooleApp.UI.Controllers
     public class ProductSummaryController : Controller
     {
         ProductSummaryService serv = new ProductSummaryService();
+        SearchCascadingClass sccObj = new SearchCascadingClass();
         // GET: ProductSummary
-        public ActionResult ProductSummary()
+
+        public ActionResult ProductSummary(SearchCascadingClass scc)
         {
             ProductDetail pd = new ProductDetail();
-           
-            pd.prodDet = serv.getProdData(2);
-            pd.searchPanel = serv.getSubCatAttData(2);
+            SearchController sc = new SearchController();
+            sccObj = scc;
+            ViewBag.CategoryList = new SelectList(sc.GetCategories(), "categoryID", "categoryName");
+            pd.prodDet = serv.getProdData(scc.SubCategoryID);
+            pd.searchPanel = serv.getSubCatAttData(scc.SubCategoryID);
 
             ViewData["Products"] = pd;
             Session["UserAvatar"]= "http://via.placeholder.com/150x150";
@@ -46,7 +52,7 @@ namespace JooleApp.UI.Controllers
                 System.Diagnostics.Debug.WriteLine("Data is " + p.Key + " " + p.Value );
             }
             ProductDetail pd = new ProductDetail();
-            pd.prodDet = serv.getProdData(queryData.data, 2);
+            pd.prodDet = serv.getProdData(queryData.data, sccObj.SubCategoryID);
             return PartialView("RenderProducts", pd);
         }
 
@@ -55,7 +61,16 @@ namespace JooleApp.UI.Controllers
             public Dictionary<String, String> data { get; set; }
         }
 
+        public PartialViewResult SearchBar()
+        {
+            return PartialView();
+        }
 
-
+        [HttpPost]
+        public ActionResult searchBar(SearchCascadingClass scc)
+        {
+            sccObj = scc;
+            return this.RedirectToAction("ProductSummary", "ProductSummary", scc);
+        }
     }
 }

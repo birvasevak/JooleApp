@@ -1,17 +1,8 @@
 ﻿@model JooleApp.UI.Models.SearchCascadingClass
 
-@{
-    ViewBag.Title = "Search";
-
-}
-
-@Styles.Render("~/Search/css")
-
-
 @if (ViewBag.CategoryList != null)
 {
-    Html.BeginForm();
-    
+    Html.BeginForm("SearchBar", "ProductSummary");
         <div class="searchForm">
             @Html.DropDownListFor(m => m.CategoryId, ViewBag.CategoryList as SelectList, "Category", new { @class = "form-control btn btn-primary dropdown-toggle", id = "CategoryId" })
 
@@ -19,16 +10,14 @@
 
             <button class="btn btn-primary" type="submit" id="btnSearch">Search</button>
         </div>
-    
     Html.EndForm();
 }
 
-
-
-<script src="~/Scripts/jquery-3.4.1.js"></script>
+@*<script src="~/Scripts/jquery-3.4.1.js"></script>
 <script>
     $(document).ready(function () {
 
+        //$("#CategoryId").addClass("dropdownCat");
         $("#CategoryId option").addClass("white");
         var catId;
         var subCatID;
@@ -41,6 +30,7 @@
                 contentType: "html",
                 success: function (response) {
                     debugger
+                    console.log("Run")
                     $("#SubCategoryID").empty();
                     $("#SubCategoryID").append(response);
 
@@ -55,4 +45,5 @@
             subCatID = $(this).val();
         });
     })
-</script> 
+</script>*@
+

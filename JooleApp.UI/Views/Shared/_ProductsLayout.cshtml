@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    @Styles.Render("~/Content/ProductSummary")
+</head>
+<body class="productSummaryLayoutBodyMain">
+    <div class="productSummaryLayoutBody">
+        <div class="productSummaryLayoutHeader">
+            <img class="brandImage" src="@Url.Content("~/Images/Joole_logo.png")" />
+
+        </div>
+
+        <div class="productSummaryLayoutContent">
+            @RenderBody()
+        </div>
+
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/ProductSummary")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+
+</body>
+</html>
+
