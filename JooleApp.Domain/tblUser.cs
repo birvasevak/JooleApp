@@ -27,6 +27,10 @@ namespace JooleApp.Domain
         [NotMapped] // Does not effect with your database
         [Compare("password", ErrorMessage = "Confirm password doesn't match, Type again !")]
         public string confirmPassword { get; set; }
+
+        [Required(ErrorMessage = "Email address is required.")]
+        [DataType(DataType.EmailAddress)]
+        [EmailAddress(ErrorMessage = "Invalid Email address")]
         public string emailAddress { get; set; }
         public string firstName { get; set; }
         public string lastName { get; set; }

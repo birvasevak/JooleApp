@@ -25,7 +25,8 @@
                 $("#SignUpModal").modal('hide');
             });
 
-            var RegisterStringValue = '@(ViewBag.RegisterMessage)';
+            //keep the modal open after submit
+            var RegisterStringValue = '@(ViewBag.HasInput)';
             if (RegisterStringValue != "") {
                 $("#SignUpModal").modal('show');
             }
@@ -96,7 +97,9 @@
                                 //input emailAddress
                                 <label for="emailAddress" class="fieldName">Email Adress:</label>
                                 @Html.EditorFor(model => model.emailAddress, new { htmlAttributes = new { @class = "form-control registerInput", @placeholder = "Email Id" } })
-                                  <div class="text-danger"></div>
+                                <div class="text-danger">
+                                    @Html.ValidationMessageFor(model => model.emailAddress, "", new { @class = "text-danger" })
+                                </div>
 
                                 //input password
                                 <label for="password" class="fieldName">Password:</label>
@@ -116,6 +119,9 @@
 
                                 <div class="text-success">
                                     @ViewBag.RegisterMessage
+                                </div>
+                                <div class="text-danger">
+                                    @ViewBag.RegisterFailMessage
                                 </div>
 
 

@@ -85,7 +85,7 @@ namespace JooleApp.UI.Controllers
                 var userID = cookie["LoginID"].ToString();
                 ViewBag.LoginID = userID;
             }
-            ViewBag.RegisterMessage ="";
+            ViewBag.HasInput = "";
             ViewBag.ImageSrc = "http://via.placeholder.com/150x150";
             return View();
         }
@@ -104,8 +104,7 @@ namespace JooleApp.UI.Controllers
                 var userDetails = service.GetUserByName(userModel.userName).FirstOrDefault();
 
                 
-                if (userDetails == null)
-                {
+                
                     if (inputFile != null)
                     {
                         string ImageName = System.IO.Path.GetFileName(inputFile.FileName);
@@ -115,20 +114,23 @@ namespace JooleApp.UI.Controllers
                         inputFile.SaveAs(physicalPath);
                         userModel.userImage = ImageName;
                         ViewBag.ImageSrc = "/Images/"+ ImageName;
+                        
                     }
 
+                if (userDetails == null)
+                {
                     service.Insert(userModel);
                     ViewBag.RegisterMessage = "Success! Please back to login.";
 
                     return View(userModel);
-
+                    
                 }
                 else
                 {
-                    ViewBag.RegisterMessage = "User name already exists";
+                    ViewBag.RegisterFailMessage = "User name already exists";
                     
                 }
-
+                ViewBag.HasInput = "true";
 
             }
             return View();
