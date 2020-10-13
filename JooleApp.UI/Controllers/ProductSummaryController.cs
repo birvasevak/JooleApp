@@ -21,7 +21,9 @@ namespace JooleApp.UI.Controllers
             pd.searchPanel = serv.getSubCatAttData(2);
 
             ViewData["Products"] = pd;
-            
+            Session["UserAvatar"]= "http://via.placeholder.com/150x150";
+
+
             return View();
         }
         
