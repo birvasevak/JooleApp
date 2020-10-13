@@ -3,32 +3,21 @@
 @{
     ViewBag.Title = "ProductSummary";
 
-    Dictionary<int, List<Dictionary<String, String>>> products = ViewData["Products"] as Dictionary<int, List<Dictionary<String, String>>>;
-    Dictionary<String, List<String>> searchData = ViewData["SearchData"] as Dictionary<String, List<String>>;
-}
+    @*Dictionary<int, List<Dictionary<String, String>>> products = ViewData["Products"] as Dictionary<int, List<Dictionary<String, String>>>;
+    Dictionary<String, List<String>> searchData = ViewData["SearchData"] as Dictionary<String, List<String>>;*@
 
-<h2>ProductSummary</h2>
+    JooleApp.UI.DataModels.ProductDetail products = ViewData["Products"] as JooleApp.UI.DataModels.ProductDetail;
+}
 
 <div class="mainBox">
     <div class="leftPanel">
-        @Html.Partial("RenderSearchPanel", searchData)
+        @Html.Partial("RenderSearchPanel", products)
     </div>
 
+    
+
     <div class="productsDisplay">
-        @foreach(KeyValuePair<int, List<Dictionary<String, String>>> prod in products)
-        {
-            <div class="cardProducts">
-                <div>
-                    Image Path : @prod.Value[0]["ImagePath"]
-                </div>
-                @foreach (KeyValuePair<String, String> perProd in prod.Value[1])
-                {
-                    <div class="perProd">
-                        @perProd.Key : @perProd.Value
-                    </div>
-                }
-            </div>
-        }
+        @Html.Partial("RenderProducts", products)
     </div>
 
 

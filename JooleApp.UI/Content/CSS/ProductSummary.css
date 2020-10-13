@@ -2,25 +2,32 @@
 }
 
 
-.mainBox{
-    display : flex;
-    flex-direction : row;
+.mainBox {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    overflow: hidden;
 }
 
-.leftPanel{
-    top : 10vh;
-    left : 0px;
-    position : fixed;
-    display : flex;
-    flex-direction : column;
-    order : 1;
-    flex-grow : 1;
-    height : 100%;
+.leftPanel {
+    left: 0px;
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 auto;
+    background-color: azure;
+    
+    border: solid 2px black;
+    height: 85vh;
+    width: 20vw;
 }
 
 .productsDisplay {
-    display : flex;
-    flex-direction : row;
-    flex-wrap : wrap;
-    flex-grow: 4;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex: 4 0 auto;
+    height: 85vh;
+    width : 80vw;
+    overflow : scroll;
+    overflow-x : hidden;
 }

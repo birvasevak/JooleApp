@@ -6,7 +6,33 @@
     flex-direction : column;
 }
 
-.slider {
-    display: flex;
-    flex-direction: column;
+.attType {
+    display : flex;
+    font-size: 20px;
+    align-items : center;
+    border-bottom: solid 1px black;
+    border-top: solid 1px black;
+    width : inherit;
 }
+
+
+    .slider {
+        display: flex;
+        flex-direction: row;
+        align-content: center;
+        margin-left : 5px;
+        margin-right : 5px;
+    }
+        
+        .leftRight{
+            display : flex;
+        }
+
+        .sliderInside {
+            display : flex;
+            width:200px;
+        }
+
+    .attName{
+        margin-top : 5px;
+    }

@@ -22,9 +22,18 @@ namespace JooleApp.Services.ModelService
             return repo.getProductDetails(subCategoryID);
         }
 
+        public Dictionary<int, List<Dictionary<String, String>>> getProdData(Dictionary<String, String> queryParams, int subCategoryID)
+        {
+            return repo.getProductDetailsFromQuery(queryParams, subCategoryID);
+        }
+
+
         public Dictionary<String, List<String>> getSubCatAttData(int subCategoryID)
         {
             return repo.getAttributeDetails(subCategoryID);
         }
+
+
+
     }
 }
