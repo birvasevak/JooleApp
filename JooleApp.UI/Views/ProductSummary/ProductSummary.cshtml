@@ -4,12 +4,21 @@
     ViewBag.Title = "ProductSummary";
 
     @*Dictionary<int, List<Dictionary<String, String>>> products = ViewData["Products"] as Dictionary<int, List<Dictionary<String, String>>>;
-    Dictionary<String, List<String>> searchData = ViewData["SearchData"] as Dictionary<String, List<String>>;*@
+        Dictionary<String, List<String>> searchData = ViewData["SearchData"] as Dictionary<String, List<String>>;*@
 
     JooleApp.UI.DataModels.ProductDetail products = ViewData["Products"] as JooleApp.UI.DataModels.ProductDetail;
 }
 
+@{
+    var subCat = "";
+    foreach (KeyValuePair<int, List<Dictionary<String, String>>> prod in products.prodDet)
+    {
+        subCat = prod.Value[2]["SubCategoryID"];
+        break;
+    }
+}
 
+<input type="hidden" id="subCategoryID" name="subCategoryID" value=@subCat>
 <div class="searchOnHeader">
     @Html.Partial("SearchBar", null)
 </div>
@@ -19,7 +28,7 @@
         @Html.Partial("RenderSearchPanel", products)
     </div>
 
-    
+
 
     <div class="productsDisplay">
         @Html.Partial("RenderProducts", products)

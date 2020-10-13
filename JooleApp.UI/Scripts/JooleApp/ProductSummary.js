@@ -10,7 +10,7 @@ $(document).ready(()=>{
 
     $(".searchButton").on('click', (e) => {
         var sliderValue = {
-            "data": {}};
+            "data": {}, "data2": {}};
         $(".sliderInside").each((pos, obj) => {
             let name = "#" + obj.id
 
@@ -28,6 +28,7 @@ $(document).ready(()=>{
             }
         });
 
+        sliderValue["data2"]["id"] = $("#subCategoryID").val()
         console.log(sliderValue);
 
         $.ajax({

@@ -50,13 +50,15 @@ namespace JooleApp.UI.Controllers
                 System.Diagnostics.Debug.WriteLine("Data is " + p.Key + " " + p.Value );
             }
             ProductDetail pd = new ProductDetail();
-            pd.prodDet = serv.getProdData(queryData.data, sccObj.SubCategoryID);
+            System.Diagnostics.Debug.WriteLine("SubCategory ID:" + sccObj.SubCategoryID);
+            pd.prodDet = serv.getProdData(queryData.data, int.Parse(queryData.data2["id"]));
             return PartialView("RenderProducts", pd);
         }
 
         public class jsonQueryData
         {
             public Dictionary<String, String> data { get; set; }
+            public Dictionary<String, String> data2 { get; set; }
         }
 
         public PartialViewResult SearchBar()
@@ -68,6 +70,7 @@ namespace JooleApp.UI.Controllers
         public ActionResult searchBar(SearchCascadingClass scc)
         {
             sccObj = scc;
+            System.Diagnostics.Debug.WriteLine("Posted SubCategory ID:" + sccObj.SubCategoryID+" CategoryID"+sccObj.CategoryId);
             return this.RedirectToAction("ProductSummary", "ProductSummary", scc);
         }
     }
