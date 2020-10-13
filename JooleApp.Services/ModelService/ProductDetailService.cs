@@ -26,19 +26,24 @@ namespace JooleApp.Services.ModelService
             this.productDetailRepo = productDetailRepo;
         }
 
-        public Dictionary<int, List<Dictionary<String, String>>> GetProductDetails(int productID)
-        {
-            return productDetailRepo.getProductDetails(productID);
-        }
-
         public List<tblProduct> getProductDescription(int productID)
         {
             return productDetailRepo.getProductDescription(productID);
         }
 
-        public Dictionary<string, string> des(int productID)
+        public Dictionary<string, string> getProductType(int productID)
         {
-            return productDetailRepo.des(productID);
+            return productDetailRepo.getProductType(productID);
+        }
+
+        public Dictionary<string, string> getTechnicalSpec(int productID)
+        {
+            return productDetailRepo.getTechnicalSpec(productID);
+        }
+
+        public Dictionary<string, List<string>> getTechSpecWithRange(int productID)
+        {
+            return productDetailRepo.getTechSpecWithRange(productID);
         }
     }
 }
