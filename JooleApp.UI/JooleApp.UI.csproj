@@ -147,6 +147,7 @@
     <Content Include="Content\CSS\ProductSummary.css" />
     <Content Include="Content\CSS\RenderSearchPanel.css" />
     <Content Include="Content\CSS\_ProductSummaryLayout.css" />
+    <Content Include="Content\JooleStyles\ProductDetails.css" />
     <Content Include="Content\JooleStyles\SearchPage.css" />
     <Content Include="Content\StyleSheet1.css" />
     <Content Include="favicon.ico" />
@@ -159,6 +160,7 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\JooleApp\ProductSummary.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
@@ -186,14 +188,16 @@
     <Content Include="Views\Category\Index.cshtml" />
     <Content Include="Views\Search\SearchPage.cshtml" />
     <Content Include="Views\Search\DisplaySubCategories.cshtml" />
-    <Content Include="Views\Login\Login.cshtml" />
-    <Content Include="Views\Login\LoginPage.cshtml" />
     <Content Include="Views\ProductSummary\ProductSummary.cshtml" />
     <Content Include="Views\ProductSummary\RenderProducts.cshtml" />
     <Content Include="Views\ProductSummary\RenderSearchPanel.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\Login\LoginPage.cshtml" />
+    <Content Include="Views\Search\checkProj.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\ProductDetails\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

@@ -7,6 +7,8 @@ namespace JooleApp.UI.DataModels
 {
     public class ProductDetail
     {
-        public List<Dictionary<String, String>> prodDet { get; set; }
+        public Dictionary<String, List<String>> searchPanel { get; set; }
+
+        public Dictionary<int, List<Dictionary<String, String>>> prodDet { get; set; }
     }
 }

@@ -1,19 +1,19 @@
 ﻿@model JooleApp.UI.DataModels.ProductDetail
 
 
-
-@{
-    List<Dictionary<String, String>> prodDetails = ViewData["Products"] as List<Dictionary<String, String>>;
+@foreach (KeyValuePair<int, List<Dictionary<String, String>>> prod in Model.prodDet)
+{
+    <div class="cardProducts">
+        <div>
+            Image Path : @prod.Value[0]["ImagePath"]
+        </div>
+        @foreach (KeyValuePair<String, String> perProd in prod.Value[1])
+        {
+            <div class="perProd">
+                @perProd.Key : @perProd.Value
+            </div>
+        }
+    </div>
 }
 
-<div class="productCard">
-    <p>
-        @*@foreach(var prod in Model.prodDet)
-        {
-
-        }*@
-
-        @Model.prodDet[0]["ProductName"];
-    </p>
-</div>
 

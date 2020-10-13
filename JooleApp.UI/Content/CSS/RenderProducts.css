@@ -1,0 +1,17 @@
+﻿body {
+}
+
+
+.cardProducts{
+    background-color : azure;
+    margin : 5px;
+    border : solid 2px black;
+    padding : 2px;
+    display : flex;
+    flex-direction : column;
+    height : 60vh;
+}
+
+    .perProd{
+        
+    }
