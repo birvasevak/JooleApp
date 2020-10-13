@@ -1,0 +1,33 @@
+﻿body {
+}
+
+
+.searchOnHeader {
+    position: fixed;
+    top: 10px;
+    left: 0;
+    right: 0;
+    height: 0;
+    /* center all inline content */
+    text-align: center;
+}
+
+
+.searchForm {
+    display: flex;
+    margin: auto;
+    width: 500px;
+}
+
+#CategoryId {
+    width :inherit;
+}
+
+.dropdownCat {
+    background-color: #337ab7;
+}
+
+.white {
+    background-color: white;
+    color: black;
+}

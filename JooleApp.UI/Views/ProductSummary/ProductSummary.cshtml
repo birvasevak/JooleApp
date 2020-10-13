@@ -9,6 +9,11 @@
     JooleApp.UI.DataModels.ProductDetail products = ViewData["Products"] as JooleApp.UI.DataModels.ProductDetail;
 }
 
+
+<div class="searchOnHeader">
+    @Html.Partial("SearchBar", null)
+</div>
+
 <div class="mainBox">
     <div class="leftPanel">
         @Html.Partial("RenderSearchPanel", products)

@@ -143,8 +143,12 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\CSS\LoginPage.css" />
     <Content Include="Content\CSS\ProductSummary.css" />
+    <Content Include="Content\CSS\RenderProducts.css" />
     <Content Include="Content\CSS\RenderSearchPanel.css" />
+    <Content Include="Content\CSS\SearchBar.css" />
+    <Content Include="Content\CSS\_ProductSummary.css" />
     <Content Include="Content\CSS\_ProductSummaryLayout.css" />
     <Content Include="Content\JooleStyles\ProductDetails.css" />
     <Content Include="Content\JooleStyles\SearchPage.css" />
@@ -155,6 +159,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Images\Joole_logo.PNG" />
     <Content Include="Images\Joole_logo2.png" />
+    <Content Include="Images\testImage.PNG" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
@@ -193,6 +198,7 @@
     <Content Include="Views\Login\LoginPage.cshtml" />
     <Content Include="Views\Search\checkProj.cshtml" />
     <Content Include="Views\Shared\_ProductSummaryLayout.cshtml" />
+    <Content Include="Views\ProductSummary\SearchBar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

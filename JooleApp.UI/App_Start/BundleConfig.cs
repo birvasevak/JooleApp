@@ -39,6 +39,7 @@ namespace JooleApp.UI
                       "~/Content/CSS/ProductSummary.css",
                       "~/Content/CSS/RenderSearchPanel.css",
                       "~/Content/CSS/RenderProducts.css",
+                      "~/Content/CSS/SearchBar.css",
                       "~/Content/CSS/_ProductSummary.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/ProductSummary").Include(
