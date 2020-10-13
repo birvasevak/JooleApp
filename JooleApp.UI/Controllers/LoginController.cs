@@ -86,6 +86,7 @@ namespace JooleApp.UI.Controllers
                 ViewBag.LoginID = userID;
             }
             ViewBag.RegisterMessage ="";
+            ViewBag.ImageSrc = "http://via.placeholder.com/150x150";
             return View();
         }
 
@@ -113,11 +114,11 @@ namespace JooleApp.UI.Controllers
                         // save image in folder
                         inputFile.SaveAs(physicalPath);
                         userModel.userImage = ImageName;
-                        ViewBag.ImagePath = ImageName;
+                        ViewBag.ImageSrc = "images/"+ ImageName;
                     }
 
                     service.Insert(userModel);
-                    ViewBag.RegisterMessage = "Success!";
+                    ViewBag.RegisterMessage = "Success! Please back to login.";
 
                     return View(userModel);
 
