@@ -85,6 +85,8 @@ namespace JooleApp.UI.Controllers
                 var userID = cookie["LoginID"].ToString();
                 ViewBag.LoginID = userID;
             }
+            ViewBag.HasInput = "";
+            ViewBag.ImageSrc = "http://via.placeholder.com/150x150";
             return View();
         }
 
@@ -95,28 +97,40 @@ namespace JooleApp.UI.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Register(JooleApp.Domain.tblUser userModel)
+        public ActionResult LoginPage(JooleApp.Domain.tblUser userModel, HttpPostedFileBase inputFile)
         {
             if (ModelState.IsValid)
             {
                 var userDetails = service.GetUserByName(userModel.userName).FirstOrDefault();
 
                 
+                
+                    if (inputFile != null)
+                    {
+                        string ImageName = System.IO.Path.GetFileName(inputFile.FileName);
+                        string physicalPath = Server.MapPath("~/Images/" + ImageName);
+
+                        // save image in folder
+                        inputFile.SaveAs(physicalPath);
+                        userModel.userImage = ImageName;
+                        ViewBag.ImageSrc = "/Images/"+ ImageName;
+                        
+                    }
+
                 if (userDetails == null)
                 {
-                    //userDetails.userName = userModel.userName;
-                    //userDetails.password = userModel.password;
                     service.Insert(userModel);
-                    ViewBag.LogInMessage = "Success!";
-                    return RedirectToAction("LoginPage");
+                    ViewBag.RegisterMessage = "Success! Please back to login.";
+
+                    return View(userModel);
                     
                 }
                 else
                 {
-                    ViewBag.LogInMessage = "User name already exists";
-                    return View();
+                    ViewBag.RegisterFailMessage = "User name already exists";
+                    
                 }
-
+                ViewBag.HasInput = "true";
 
             }
             return View();

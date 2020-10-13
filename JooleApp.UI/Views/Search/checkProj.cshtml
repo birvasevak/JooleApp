@@ -1,0 +1,109 @@
+﻿@model JooleApp.Services.ModelService.ProductDetailService
+@{
+    ViewBag.Title = "Project Details";
+    Layout = null;
+
+    Dictionary<int, List<Dictionary<String, String>>> products = ViewData["ProductsDetails"] as Dictionary<int, List<Dictionary<String, String>>>;
+
+    List<JooleApp.Domain.tblProduct> des = ViewData["description"] as List<JooleApp.Domain.tblProduct>;
+
+    Dictionary<string, string> type = ViewData["type"] as Dictionary<string, string>;
+
+    Styles.Render("~/ProductDetail/css");
+}
+<link rel="stylesheet" href="~/Content/JooleStyles/ProductDetails.css"/>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+
+<div class="container">
+    <h5>Product Details</h5>
+    <div class="row show-grid justify-content-around">
+        <div class="col-md-6">
+            <hr/>
+            <h8>DESCRIPTION</h8>
+            <table id="description_section1" class="keyvalue">
+                <tbody>
+                    @if (des != null)
+                    {
+                        foreach (var d in des)
+                        {
+                            <tr>
+                                <th>Product Name</th>
+                                <td>@d.productName</td>
+                            </tr>
+                            <tr>
+                                <th>Model Name</th>
+                                <td>@d.modelName</td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>prduct is null</tr>
+                    }
+                </tbody>
+            </table>
+            <hr />
+            <h8>TYPE</h8>
+            <table id="description_section1" class="keyvalue">
+                <tbody>
+                    @if (des != null)
+                    {
+                        foreach (var d in des)
+                        {
+                            <tr>
+                                <th>Model Year</th>
+                                <td>@d.modelYear</td>
+                            </tr>
+                        }
+                    }
+                    @if (type != null)
+                    {
+                        foreach (KeyValuePair<string, string> t in type)
+                        {
+                            <tr>
+                                <th>@t.Key</th>
+                                <td>@t.Value</td>
+                            </tr>
+
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-6 col-md-offset-2">
+            <hr/>
+            <h8>TECHNICAL SPECIFICATIONS</h8>
+            <table id="description_section1" class="keyvalue">
+                <tbody>
+                    @if (products != null)
+                    {
+                        foreach (KeyValuePair<int, List<Dictionary<String, String>>> prod in products)
+                        {
+                            
+                                foreach (KeyValuePair<String, String> perProd in prod.Value[1])
+                                {
+                                    if (perProd.Key != "Mount" && perProd.Key != "Application")
+                                    {
+                                        <tr>
+                                            <th>@perProd.Key</th>
+                                            <td>@perProd.Value</td>
+                                        </tr>
+                                    }
+
+                                }
+                            
+                        }
+                    }
+                    else
+                    {
+                        <tr>prduct is null</tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+

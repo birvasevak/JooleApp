@@ -54,6 +54,7 @@
     <Compile Include="IProductSummaryRepo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\ProductCategoryRepo.cs" />
+    <Compile Include="Repositories\ProductDetailRepo.cs" />
     <Compile Include="Repositories\ProductSubCategoryRepo.cs" />
     <Compile Include="Repositories\ProductSummaryRepo.cs" />
     <Compile Include="Repositories\Repository.cs" />
