@@ -70,7 +70,7 @@ namespace JooleApp.UI.Controllers
                 //    HttpContext.Response.Cookies.Add(cookie);
 
                 //}
-                return RedirectToAction("Index", "Category"); //action name, controller name
+                return RedirectToAction("SearchPage", "Search"); //action name, controller name
             }
 
 
