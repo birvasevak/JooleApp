@@ -4,8 +4,8 @@
 @foreach (KeyValuePair<int, List<Dictionary<String, String>>> prod in Model.prodDet)
 {
     <div class="cardProducts">
-        <div>
-            Image Path : @prod.Value[0]["ImagePath"]
+        <div class="image">
+            <img src=@prod.Value[0]["ImagePath"] />
         </div>
         @foreach (KeyValuePair<String, String> perProd in prod.Value[1])
         {
@@ -13,6 +13,32 @@
                 @perProd.Key : @perProd.Value
             </div>
         }
+
+        <div class="botCard">
+            @{
+                var idCheck = "check" + "_" + prod.Key;
+                var idButton = "button" + "_" + prod.Key;
+            }
+            <div class="checker">
+                <input type="checkbox" id=@idCheck class="itemCheck" name=@idCheck value=@prod.Key>
+                <label for=@idCheck class="itemLabel"> Compare </label>
+            </div>
+
+            
+                @{
+                    Html.BeginForm("SearchPage", "Search");
+                    <button class="btn-primary viewButton" id=@idButton>
+                        View Item
+                    </button>
+                    Html.EndForm();
+                }
+            
+        </div>
+
+        
+
+
+
     </div>
 }
 
