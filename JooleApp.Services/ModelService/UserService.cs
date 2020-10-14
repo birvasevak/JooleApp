@@ -61,9 +61,14 @@ namespace JooleApp.Services.ModelService
             return this.userRepo.GetAll().Where(model => model.userName == userName);
         }
 
-        public IEnumerable<tblUser> GetUserAuth(string userName,string password)
+        public IEnumerable<tblUser> GetUserNameAuth(string userName,string password)
         {
             return this.userRepo.GetAll().Where(model => model.userName == userName && model.password == password);
+        }
+
+        public IEnumerable<tblUser> GetUserEmailAuth(string emailAddress, string password)
+        {
+            return this.userRepo.GetAll().Where(model => model.emailAddress == emailAddress && model.password == password);
         }
 
         public void Insert(tblUser user)

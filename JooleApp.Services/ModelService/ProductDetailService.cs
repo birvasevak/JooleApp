@@ -26,6 +26,11 @@ namespace JooleApp.Services.ModelService
             this.productDetailRepo = productDetailRepo;
         }
 
+        public List<tblProduct> GetAll()
+        {
+            return productDetailRepo.GetAll();
+        }
+
         public List<tblProduct> getProductDescription(int productID)
         {
             return productDetailRepo.getProductDescription(productID);
@@ -36,6 +41,10 @@ namespace JooleApp.Services.ModelService
             return productDetailRepo.getProductType(productID);
         }
 
+        public Dictionary<string, string> getAllTechnicalSpec(int productID)
+        {
+            return productDetailRepo.getAllTechnicalSpec(productID);
+        }
         public Dictionary<string, string> getTechnicalSpec(int productID)
         {
             return productDetailRepo.getTechnicalSpec(productID);

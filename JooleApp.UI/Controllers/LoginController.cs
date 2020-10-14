@@ -16,7 +16,7 @@ namespace JooleApp.UI.Controllers
         private UserService service;
 
 
-        
+
 
         public LoginController()
         {
@@ -38,7 +38,7 @@ namespace JooleApp.UI.Controllers
             return users;
         }
 
-      
+
 
         //[Authorize]
         [HttpPost]
@@ -46,21 +46,43 @@ namespace JooleApp.UI.Controllers
         public ActionResult Authorize(JooleApp.Domain.tblUser userModel)
         {
             HttpCookie cookie = new HttpCookie("tblJooleUser");
+            var userDetails = service.GetAll().FirstOrDefault();
 
-            var userDetails = service.GetUserAuth(userModel.userName, userModel.password).FirstOrDefault();
-              
+            //user name login
+            if (userModel.userName != null)
+            {
+                userDetails = service.GetUserNameAuth(userModel.userName, userModel.password).FirstOrDefault();
+            }
+
+            //email login
+            if (userDetails == null)
+            {
+                userDetails = service.GetUserEmailAuth(userModel.userName, userModel.password).FirstOrDefault();
+            }
+
             if (userDetails == null)
             { //login failed
-                
+
                 ViewBag.LoginErrorMessage = "Wrong Login ID or Password.";
                 return View("LoginPage");
             }
             else
-            { //login success
+            { //login success               
                 System.Web.Security.FormsAuthentication.SetAuthCookie(userModel.userName, false);
+                System.Web.Security.FormsAuthentication.SetAuthCookie(userModel.emailAddress, false);
+
+                if (String.IsNullOrEmpty(userDetails.userImage))
+                { //set default userImage 
+                    Session["UserAvatar"] = "http://via.placeholder.com/150x150";
+                }
+                else 
+                {
+                    Session["UserAvatar"] = "/Images/" + userDetails.userImage;
+                }
 
                 Session["userID"] = userDetails.userID;
                 Session["userName"] = userDetails.userName;
+                Session["emailAddress"] = userDetails.emailAddress;
                 //if (userModel.RememberMe)
                 //{
 
@@ -103,19 +125,19 @@ namespace JooleApp.UI.Controllers
             {
                 var userDetails = service.GetUserByName(userModel.userName).FirstOrDefault();
 
-                
-                
-                    if (inputFile != null)
-                    {
-                        string ImageName = System.IO.Path.GetFileName(inputFile.FileName);
-                        string physicalPath = Server.MapPath("~/Images/" + ImageName);
 
-                        // save image in folder
-                        inputFile.SaveAs(physicalPath);
-                        userModel.userImage = ImageName;
-                        ViewBag.ImageSrc = "/Images/"+ ImageName;
-                        
-                    }
+
+                if (inputFile != null)
+                {
+                    string ImageName = System.IO.Path.GetFileName(inputFile.FileName);
+                    string physicalPath = Server.MapPath("~/Images/" + ImageName);
+
+                    // save image in folder
+                    inputFile.SaveAs(physicalPath);
+                    userModel.userImage = ImageName;
+                    ViewBag.ImageSrc = "/Images/" + ImageName;
+
+                }
 
                 if (userDetails == null)
                 {
@@ -123,12 +145,12 @@ namespace JooleApp.UI.Controllers
                     ViewBag.RegisterMessage = "Success! Please back to login.";
 
                     return View(userModel);
-                    
+
                 }
                 else
                 {
                     ViewBag.RegisterFailMessage = "User name already exists";
-                    
+
                 }
                 ViewBag.HasInput = "true";
 
@@ -153,5 +175,4 @@ namespace JooleApp.UI.Controllers
 
 }
 
-  
 

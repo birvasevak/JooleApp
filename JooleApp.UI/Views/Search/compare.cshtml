@@ -1,10 +1,110 @@
-﻿
+﻿@model JooleApp.Services.ModelService.ProductDetailService
+
 @{
     ViewBag.Title = "compare";
     Layout = "~/Views/Shared/_ProductsLayout.cshtml";
+
+    List<List<JooleApp.Domain.tblProduct>> descriptionList = ViewData["descriptionList"] as List<List<JooleApp.Domain.tblProduct>>;
+    var colspanNo = descriptionList.Count + 1;
+
+    List<Dictionary<string, string>> typeList = ViewData["typeList"] as List<Dictionary<string, string>>;
+
+    //List<Dictionary<string, string>> techList = ViewData["techList"] as List<Dictionary<string, string>>;
+
+    Dictionary<string, string> kvp = ViewData["kvp"] as Dictionary<string, string>;
+
+    List<Dictionary<string, string>> techList = ViewData["techList"] as List<Dictionary<string, string>>;
 }
 
-<h2>compare</h2>
+<link rel="stylesheet" href="~/Content/JooleStyles/ProductDetails.css" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
-<p>id_1: @ViewData["id1"]</p>
-<p>id_2: @ViewData["id2"]</p>
+
+<div class="container">
+    <table id="description_section1" class="keyvalue table-bordered">
+        <tbody>
+
+            <tr>
+                <th colspan="@colspanNo" scope="colgroup">DESCRIPTION</th>
+
+            </tr>
+
+            @if (descriptionList != null)
+            {
+
+                <tr>
+                    <th>Image</th>
+                    @foreach (var item in descriptionList)
+                    {
+                        <td>
+                            <img src="@item[0].imagePath"/>
+                        </td>
+                    }
+                </tr>
+
+                <tr>
+                    <th>Product Name</th>
+                    @foreach (var item in descriptionList)
+                    {
+                        <td>@item[0].productName</td>
+                    }
+                </tr>
+
+                <tr>
+                    <th>Model Name</th>
+                    @foreach (var item in descriptionList)
+                    {
+                        <td>@item[0].modelName</td>
+                    }
+                </tr>
+
+                <tr>
+                    <th>Model Year</th>
+                    @foreach (var item in descriptionList)
+                    {
+                        <td>@item[0].modelYear</td>
+                    }
+                </tr>
+            }
+            <tr>
+                <th colspan="@colspanNo" scope="colgroup">TYPE</th>
+
+            </tr>
+
+            @if (typeList != null)
+            {
+                foreach (KeyValuePair<string, string> t in typeList[0])
+                {
+                    <tr>
+                        <th>@t.Key</th>
+                        @foreach (Dictionary<string, string> type in typeList)
+                        {
+                            <td>@type[@t.Key]</td>
+                        }
+                    </tr>
+                }
+            }
+
+            <tr>
+                <th colspan="@colspanNo" scope="colgroup">TECHNICAL SPECIFICATION</th>
+
+            </tr>
+
+            @if (techList != null)
+            {
+                foreach (KeyValuePair<string, string> d in techList[0])
+                {
+                    <tr>
+                        <th>@d.Key</th>
+                        @foreach (Dictionary<string, string> li in techList)
+                        {
+                            <td>@li[d.Key]</td>
+                        }
+                    </tr>
+                }
+            }
+
+
+        </tbody>
+    </table>
+</div>
