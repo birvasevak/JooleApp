@@ -48,9 +48,9 @@ namespace JooleApp.UI.Controllers
             return PartialView("DisplaySubCategories");
         }
 
-        public ActionResult checkProj()
+        public ActionResult checkProj(int productID)
         {
-            int productID = 1;
+            //int productID = 1;
             ViewData["description"] = detailService.getProductDescription(productID);
             ViewData["productType"] = detailService.getProductType(productID);
             ViewData["techSpec"] = detailService.getTechnicalSpec(productID);
@@ -64,5 +64,19 @@ namespace JooleApp.UI.Controllers
             return this.RedirectToAction("ProductSummary", "ProductSummary", scc);
         }
 
+        public ActionResult compare(int id1, int id2)
+        {
+            ViewData["id1"] = id1;
+            ViewData["id2"] = id2;
+            ViewData["description1"] = detailService.getProductDescription(id1);
+            ViewData["productType1"] = detailService.getProductType(id1);
+            ViewData["techSpec1"] = detailService.getTechnicalSpec(id1);
+
+            ViewData["description2"] = detailService.getProductDescription(id2);
+            ViewData["productType2"] = detailService.getProductType(id2);
+            ViewData["techSpec2"] = detailService.getTechnicalSpec(id2);
+
+            return View();
+        }
     }
 }

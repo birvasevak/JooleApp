@@ -208,6 +208,7 @@
     <Content Include="Views\Shared\_ProductSummaryLayout.cshtml" />
     <Content Include="Views\ProductSummary\SearchBar.cshtml" />
     <Content Include="Views\Shared\_ProductsLayout.cshtml" />
+    <Content Include="Views\Search\compare.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\ProductDetails\" />
