@@ -96,6 +96,7 @@ $(document).ready(()=>{
         $("#CategoryId").val("Category").change();
     });
 
+
     function RefreshSomeEventListener() {
         // Remove handler from existing elements
         $(".itemCheck").off();
@@ -106,11 +107,46 @@ $(document).ready(()=>{
             var itemID = "#" + e.target.id;
             if ($(itemID).prop("checked") == true) {
                 selectedIDs.push(productID);
+                
             } else {
                 var temp = selectedIDs.indexOf(productID);
                 selectedIDs.splice(temp, 1);
             }
             console.log("Added" + selectedIDs);
+            
         });
     }
+
+    $(function () {
+        counter = 0;
+        $(".itemCheck").click(function () {
+
+            if (this.checked) {
+                counter++;
+                console.log("counter: " + counter);
+                if (counter == 2 || counter == 3) {
+                    $("#btnCompare").removeAttr("disabled");
+                }
+            } else {
+                counter--;
+                if (counter != 2 || counter != 3) {
+                    $("#btnCompare").attr("disabled", "disabled");
+                }
+            }
+        });
+
+
+       /* $("#btnCompare").click(function () {
+            $.ajax({
+                url: '.././Search/compare',
+                dataType: 'json',
+                method: 'POST',
+                data: {
+                    id1: 4,
+                    id2: 5
+                }
+            });
+        });*/
+    });
+
 });

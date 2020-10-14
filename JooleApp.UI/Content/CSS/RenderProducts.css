@@ -18,7 +18,8 @@
 }
     
     .image{
-        height : 40vh;
+/*        height : 40vh;*/
+        height: 25vh;
         display : flex;
         flex-direction : row;
         align-content : center;
@@ -67,3 +68,7 @@
             .viewButton{
                 margin-right : 10px;
             }
+
+.prodDesription{
+    font-weight: bold;
+}

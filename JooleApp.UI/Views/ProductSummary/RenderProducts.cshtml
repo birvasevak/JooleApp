@@ -1,5 +1,7 @@
 ﻿@model JooleApp.UI.DataModels.ProductDetail
 
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+
 
 @foreach (KeyValuePair<int, List<Dictionary<String, String>>> prod in Model.prodDet)
 {
@@ -7,6 +9,10 @@
         <div class="image">
             <img src=@prod.Value[0]["ImagePath"] />
         </div>
+        <div class="prodDesription">@prod.Value[0]["ProductName"]</div>
+        <div class="prodDesription">@prod.Value[0]["ModelName"]</div>
+        <br />
+
         @foreach (KeyValuePair<String, String> perProd in prod.Value[1])
         {
             <div class="perProd">
@@ -24,22 +30,36 @@
                 <label for=@idCheck class="itemLabel"> Compare </label>
             </div>
 
-            
-                @{
+
+            @* @{
                     Html.BeginForm("SearchPage", "Search");
-                    <button class="btn-primary viewButton" id=@idButton>
+                    <button class="btn btn-sm btn-primary viewButton" id=@idButton onclick="@Url.Action("SearchPage","Search")">
                         View Item
                     </button>
                     Html.EndForm();
-                }
-            
+                }*@
+            <button class="btn btn-sm btn-primary viewButton" type="button" id=@idButton onclick="location.href='@Url.Action("checkProj", "Search", new { productID = prod.Key})'">
+                View Item
+            </button>
         </div>
-
-        
-
-
-
     </div>
+    
+    <script>
+
+        @*$("#btnCompare").click(function () {
+            $.ajax({
+                url: '@Url.Action("compare", "Search")',
+                dataType: 'html',
+                method: 'POST',
+                data: {
+                    id1: @prod.Key,
+                    id2: @prod.Key
+                }
+            });
+        });*@
+        @*onclick = "location.href='@Url.Action("checkProj", "Search", new { productID = prod.Key})'"*@
+
+    </script>
 }
 
 
