@@ -22,6 +22,18 @@ namespace JooleApp.Repository.Repositories
             dbb = context;
         }
 
+        public List<tblProduct> GetAll()
+        {
+            List<tblProduct> prodDet = null;
+            using (var db = new JooleAppEntities())
+            {
+                
+                prodDet = (from pd in dbb.tblProducts
+                           select pd).ToList<tblProduct>();
+            }
+            return prodDet;
+        }
+
         public List<tblProduct> getProductDescription(int productID)
         {
             List<tblProduct> prodDet = null;
@@ -45,6 +57,37 @@ namespace JooleApp.Repository.Repositories
                            join a in dbb.tblAttributes
                            on pa.attributeID equals a.attributeID
                            where (p.productID == productID && a.isTechSpec == false)
+                           select new { p, pa, a }
+                           );
+
+                Dictionary<string, string> newD = new Dictionary<string, string>();
+
+                foreach (var d in des)
+                {
+                    newD.Add(d.a.attributeName, d.pa.attributeValue);
+                }
+                return newD;
+            }
+        }
+
+        public Dictionary<string, string> getAllTechnicalSpec(int productID)
+        {
+            using (var db = new JooleAppEntities())
+            {
+                /*var des = (from p in dbb.tblProducts
+                           join pa in dbb.tblProductAttributes
+                           on p.productID equals pa.productID
+                           join a in dbb.tblAttributes
+                           on pa.attributeID equals a.attributeID
+                           where (p.productID == productID && a.isTechSpec == true)
+                           select new { p.productID, a.attributeName, pa.attributeValue }
+                           ).Distinct();*/
+                var des = (from p in dbb.tblProducts
+                           join pa in dbb.tblProductAttributes
+                           on p.productID equals pa.productID
+                           join a in dbb.tblAttributes
+                           on pa.attributeID equals a.attributeID
+                           where (p.productID == productID && a.isTechSpec == true)
                            select new { p, pa, a }
                            );
 
