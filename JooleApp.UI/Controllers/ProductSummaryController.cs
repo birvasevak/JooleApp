@@ -37,8 +37,13 @@ namespace JooleApp.UI.Controllers
                 prod.Value[0]["ImagePath"] = imgDataURL;
             }
             ViewData["Products"] = pd;
-            
-            return View();
+
+            //set default avatar
+            if (System.Web.HttpContext.Current.Session["UserAvatar"] == null)
+            {
+                Session["UserAvatar"] = "http://via.placeholder.com/150x150";
+            }
+                return View();
         }
         
         public PartialViewResult RenderSearchPanel(ProductDetail data)

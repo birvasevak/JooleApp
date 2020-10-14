@@ -7,11 +7,14 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @Styles.Render("~/Content/ProductSummary")
+  
 </head>
 <body class="productSummaryLayoutBodyMain">
     <div class="productSummaryLayoutBody">
         <div class="productSummaryLayoutHeader">
             <img class="brandImage" src="@Url.Content("~/Images/Joole_logo.png")" />
+            
+            <img id="avatar" src=@Session["UserAvatar"].ToString()>
         </div>
 
         <div class="productSummaryLayoutContent">
@@ -26,6 +29,5 @@
     @Scripts.Render("~/bundles/ProductSummary")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
-    <script src="~/Scripts/jquery-3.4.1.js"></script>
 </body>
 </html>
