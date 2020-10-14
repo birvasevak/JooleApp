@@ -82,11 +82,13 @@ namespace JooleApp.Repository.Repositories
                         prodAtts[prod.pattC.prod.productID] = new List<Dictionary<string, string>>();
                         prodAtts[prod.pattC.prod.productID].Add(new Dictionary<string, string>());
                         prodAtts[prod.pattC.prod.productID].Add(new Dictionary<string, string>());
+                        prodAtts[prod.pattC.prod.productID].Add(new Dictionary<string, string>());
                         prodAtts[prod.pattC.prod.productID][1].Add(prod.attributeName, prod.pattC.patt.attributeValue);
                         prodAtts[prod.pattC.prod.productID][0].Add("ImagePath",prod.pattC.prod.imagePath);
                         prodAtts[prod.pattC.prod.productID][0].Add("ModelName", prod.pattC.prod.modelName);
                         prodAtts[prod.pattC.prod.productID][0].Add("ModelYear", prod.pattC.prod.modelYear);
                         prodAtts[prod.pattC.prod.productID][0].Add("ProductName", prod.pattC.prod.productName);
+                        prodAtts[prod.pattC.prod.productID][2].Add("SubCategoryID", prod.pattC.prod.subCategoryID.ToString());
                     }
                 }
 
@@ -99,7 +101,7 @@ namespace JooleApp.Repository.Repositories
             Dictionary<int, List<Dictionary<String, String>>> prodDetails = getProductDetails(subCategoryID);
             Dictionary<int, List<Dictionary<String, String>>> prodDetailsReturn = new Dictionary<int, List<Dictionary<string, string>>>();
 
-
+            System.Diagnostics.Debug.WriteLine("In details query");
             foreach (KeyValuePair<int, List<Dictionary<String, String>>> prod in prodDetails)
             {
 
@@ -107,13 +109,14 @@ namespace JooleApp.Repository.Repositories
 
                 foreach (KeyValuePair<String, String> att in queryAtt)
                 {
-                    System.Diagnostics.Debug.WriteLine("" + att.Key + " " + att.Value);
+                    System.Diagnostics.Debug.WriteLine("In " + att.Key + " " + att.Value);
                     if ( Convert.ToDouble(prod.Value[1][att.Key]) <= Convert.ToDouble(att.Value))
                     {
                         addThat = true;
                     }
                     else
                     {
+                        System.Diagnostics.Debug.WriteLine("In NOt " + att.Key + " " + att.Value);
                         addThat = false;
                         break;
                     }
