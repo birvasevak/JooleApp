@@ -5,7 +5,9 @@ using System.Web;
 using System.Web.Mvc;
 using JooleApp.Domain;
 using JooleApp.Services.ModelService;
+using JooleApp.UI.DataModels;
 using JooleApp.UI.Models;
+using static JooleApp.UI.Controllers.ProductSummaryController;
 
 namespace JooleApp.UI.Controllers
 {
@@ -64,8 +66,13 @@ namespace JooleApp.UI.Controllers
             return this.RedirectToAction("ProductSummary", "ProductSummary", scc);
         }
 
-        public ActionResult compare(int id1, int id2)
+        
+        public ViewResult compare(JsonCompareModel prods)
         {
+
+            System.Diagnostics.Debug.WriteLine(prods.id1 + " " + prods.id2);
+
+            int id1 = int.Parse(prods.id1), id2 = int.Parse(prods.id2);
             ViewData["id1"] = id1;
             ViewData["id2"] = id2;
             ViewData["description1"] = detailService.getProductDescription(id1);

@@ -5,6 +5,7 @@ using JooleApp.UI.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
 
@@ -33,11 +34,11 @@ namespace JooleApp.UI.Controllers
                 byte[] byteData = System.IO.File.ReadAllBytes(imgPath);
                 string imreBase64Data = Convert.ToBase64String(byteData);
                 string imgDataURL = string.Format("data:image/jpg;base64,{0}", imreBase64Data);
-
                 prod.Value[0]["ImagePath"] = imgDataURL;
             }
+            TempData["ids"] = new List<String>();
             ViewData["Products"] = pd;
-            
+
             return View();
         }
         
@@ -46,6 +47,16 @@ namespace JooleApp.UI.Controllers
             return PartialView(data);
         }
 
+        [HttpPost]
+        public ActionResult RenderSearchPanel()
+        {
+            JsonCompareModel jCD = new JsonCompareModel();
+            List<String> temp = TempData["ids"] as List<String>;
+            jCD.id1 = temp[0];
+            jCD.id2 = temp[1];
+            System.Diagnostics.Debug.WriteLine(jCD.id1 + " " + jCD.id2);
+            return RedirectToAction("compare","Search", jCD);
+        }
 
         public PartialViewResult RenderProducts(ProductDetail data)
         {
@@ -88,6 +99,23 @@ namespace JooleApp.UI.Controllers
             sccObj = scc;
             System.Diagnostics.Debug.WriteLine("Posted SubCategory ID:" + sccObj.SubCategoryID+" CategoryID"+sccObj.CategoryId);
             return this.RedirectToAction("ProductSummary", "ProductSummary", scc);
+        }
+
+        [HttpPost]
+        public ActionResult Clicked(String id)
+        {
+            List<String> temp = TempData["ids"] as List<String>;
+            if (temp.Contains(id))
+            {
+                temp.Remove(id);
+            }
+            else
+            {
+                temp.Add(id);
+            }
+            TempData["ids"] = temp;
+            System.Diagnostics.Debug.WriteLine(temp);
+            return new EmptyResult();
         }
     }
 }
