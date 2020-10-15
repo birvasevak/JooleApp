@@ -28,15 +28,6 @@ namespace JooleApp.UI.Controllers
         {
             this.service = service;
             this.detailService = detailService;
-            foreach (var p in detailService.GetAll())
-            {
-                string imgPath = Server.MapPath("~" + "/App_Data/" + p.productName.Replace(" ", "") + ".jpg");
-
-                byte[] byteData = System.IO.File.ReadAllBytes(imgPath);
-                string imreBase64Data = Convert.ToBase64String(byteData);
-                string imgDataURL = string.Format("data:image/jpg;base64,{0}", imreBase64Data);
-                p.imagePath = imgDataURL;
-            }
         }
 
 
@@ -68,6 +59,7 @@ namespace JooleApp.UI.Controllers
             ViewData["productType"] = detailService.getProductType(productID);
             ViewData["techSpec"] = detailService.getTechnicalSpec(productID);
             ViewData["withRange"] = detailService.getTechSpecWithRange(productID);
+
             return View();
         }
 
@@ -90,17 +82,6 @@ namespace JooleApp.UI.Controllers
                 string imgDataURL = string.Format("data:image/jpg;base64,{0}", imreBase64Data);
                 p.imagePath = imgDataURL;
             }
-
-
-            /*foreach(var p in detailService.getProductDescription(id1))
-            {
-                string imgPath = Server.MapPath("~" + "/App_Data/" + p.productName.Replace(" ", "") + ".jpg");
-
-                byte[] byteData = System.IO.File.ReadAllBytes(imgPath);
-                string imreBase64Data = Convert.ToBase64String(byteData);
-                string imgDataURL = string.Format("data:image/jpg;base64,{0}", imreBase64Data);
-                p.imagePath = imgDataURL;
-            }*/
 
             List<List<tblProduct>> descriptionList = new List<List<tblProduct>>();
             descriptionList.Add(detailService.getProductDescription(id1));
