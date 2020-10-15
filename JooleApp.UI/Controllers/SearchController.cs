@@ -86,13 +86,11 @@ namespace JooleApp.UI.Controllers
             List<List<tblProduct>> descriptionList = new List<List<tblProduct>>();
             descriptionList.Add(detailService.getProductDescription(id1));
             descriptionList.Add(detailService.getProductDescription(id2));
-            descriptionList.Add(detailService.getProductDescription(id2));
 
             ViewData["descriptionList"] = descriptionList;
 
             List<Dictionary<string, string>> typeList = new List<Dictionary<string, string>>();
             typeList.Add(detailService.getProductType(id1));
-            typeList.Add(detailService.getProductType(id2));
             typeList.Add(detailService.getProductType(id2));
 
             ViewData["typeList"] = typeList;
@@ -101,7 +99,6 @@ namespace JooleApp.UI.Controllers
 
             List<Dictionary<string, string>> techList = new List<Dictionary<string, string>>();
             techList.Add(detailService.getAllTechnicalSpec(id1));
-            techList.Add(detailService.getAllTechnicalSpec(id2));
             techList.Add(detailService.getAllTechnicalSpec(id2));
             ViewData["techList"] = techList;
 
