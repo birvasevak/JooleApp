@@ -161,8 +161,8 @@ namespace JooleApp.UI.Controllers
         public ActionResult LogOut()
         {
             //int loginID = (int) Session["loginID"];
-            //Session.Abandon();
-            return RedirectToAction("Login", "Login"); //action name, controller name
+            Session.Abandon();
+            return RedirectToAction("LoginPage", "Login"); //action name, controller name
         }
 
 

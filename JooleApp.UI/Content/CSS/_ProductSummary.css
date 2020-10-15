@@ -39,3 +39,17 @@ footer {
     order: 3;
     height: 5vh
 }
+
+#btnLogOut {
+    z-index: 99;
+    color: black;
+    position: fixed;
+    top: 10px;
+    right: 2%;
+    border: none;
+    background-color: inherit;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+}

@@ -7,14 +7,22 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @Styles.Render("~/Content/ProductSummary")
-  
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#btnLogOut').click(function () {
+                document.location = '@Url.Action("LonOut","Login")';
+            });
+        });
+    </script>
+
 </head>
 <body class="productSummaryLayoutBodyMain">
     <div class="productSummaryLayoutBody">
         <div class="productSummaryLayoutHeader">
             <img class="brandImage" src="@Url.Content("~/Images/Joole_logo.png")" />
-            
             <img id="avatar" src=@Session["UserAvatar"].ToString()>
+            <!-- log out button -->
+            <input type="button" id="btnLogOut" value="Log Out" onclick="@("window.location.href='" + @Url.Action("LogOut", "Login") + "'");" />
         </div>
 
         <div class="productSummaryLayoutContent">
