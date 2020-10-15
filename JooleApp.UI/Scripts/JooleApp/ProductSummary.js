@@ -105,17 +105,22 @@ $(document).ready(()=>{
             var productID = (e.target.id).split("_")[1];
 
             var itemID = "#" + e.target.id;
-            if ($(itemID).prop("checked") == true) {
-                selectedIDs.push(productID);
-                
-            } else {
-                var temp = selectedIDs.indexOf(productID);
-                selectedIDs.splice(temp, 1);
-            }
-            console.log("Added" + selectedIDs);
+
+            $.ajax({
+                type: "POST",
+                url: "Clicked/ProductSummary",
+                data: { "id": productID },
+                success: () => { },
+                error: (e) => {
+                    console.log(e);
+                }
+            })
+
             
         });
     }
+
+
 
     $(function () {
         counter = 0;
@@ -135,16 +140,22 @@ $(document).ready(()=>{
             }
         });
 
+        /*$("#btnCompare").on("click", () => {
+            var compareItems = {};
 
-       /* $("#btnCompare").click(function () {
-            $.ajax({
-                url: '.././Search/compare',
-                dataType: 'json',
-                method: 'POST',
-                data: {
-                    id1: 4,
-                    id2: 5
-                }
+            console.log(tempSelected);
+
+
+            var i = 1;
+            for (var item of selectedIDs) {
+                console.log(item);
+                compareItems["id" +i] = item;
+                i++;
+            } 
+
+            $.post("RenderSearchPanel/ProductSummary", compareItems, (result) => {
+                window.location = $("#urlToCall").val();
+                $(document).html(result);
             });
         });*/
     });

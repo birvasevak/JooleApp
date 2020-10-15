@@ -1,5 +1,8 @@
 ﻿@model JooleApp.UI.DataModels.ProductDetail
 
+@{ 
+    List<String> ids = TempData["Selected"] as List<String>;
+}
 
 <div class="details">
 
@@ -62,10 +65,17 @@
             </div>
         }
     }
-<button class="btn btn-sm btn-primary" id="btnCompare" disabled onclick = "location.href='@Url.Action("compare", "Search", new { id1 = 4, id2=5})'" >Compare</button>
+    
+        @if (true)
+        {
+            Html.BeginForm("RenderSearchPanel", "ProductSummary");
+            <button class="btn btn-sm btn-primary" type="submit" id="btnCompare" disabled>Compare</button>
+            Html.EndForm();
+        }
+    
 </div>
 <script>
-    @*$("#btnCompare").*@
+
 </script>
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
