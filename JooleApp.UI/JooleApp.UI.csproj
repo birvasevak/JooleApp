@@ -147,7 +147,7 @@
     <Content Include="App_Data\MacBookAir.jpg" />
     <Content Include="App_Data\MacBookPro.jpg" />
     <Content Include="App_Data\MonteCarloarmstrong.jpg" />
-    <Content Include="App_Data\SamsungSmartLCD.jpg" />
+    <Content Include="App_Data\SamsumgSmartLCD.jpg" />
     <Content Include="App_Data\SamsungSmartLED.jpg" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
