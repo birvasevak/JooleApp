@@ -74,14 +74,6 @@ namespace JooleApp.Repository.Repositories
         {
             using (var db = new JooleAppEntities())
             {
-                /*var des = (from p in dbb.tblProducts
-                           join pa in dbb.tblProductAttributes
-                           on p.productID equals pa.productID
-                           join a in dbb.tblAttributes
-                           on pa.attributeID equals a.attributeID
-                           where (p.productID == productID && a.isTechSpec == true)
-                           select new { p.productID, a.attributeName, pa.attributeValue }
-                           ).Distinct();*/
                 var des = (from p in dbb.tblProducts
                            join pa in dbb.tblProductAttributes
                            on p.productID equals pa.productID

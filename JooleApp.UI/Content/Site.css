@@ -15,20 +15,16 @@ body {
     height: 100vh;
 }
 
-/* Set padding to keep content from hitting the edges */
 .body-content {
     background: rgb(36,116,169);
     background: linear-gradient(180deg, rgba(36,116,169,1) 30%, rgba(243,247,250,1) 100%);
 }
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
 .dl-horizontal dt {
     white-space: normal;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
+
 input,
 select,
 textarea {
@@ -41,7 +37,6 @@ textarea {
     width: 100%;
     margin: auto;
     overflow: auto;
-    /*background-color: #FBB917;*/
 }
 
     .main::-webkit-scrollbar {
@@ -56,17 +51,20 @@ textarea {
     width: 100%;
     height: 300px;
 }
+
     .displayBrand img {
         height: auto;
         margin-top: 8rem;
     }
 
 .caption {
-    position: absolute;
     display: block;
-    margin-left: 400px;
     font-size: 16pt;
     color: black;
-    justify-content: center;
-    text-align: center;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
 }
