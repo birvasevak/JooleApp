@@ -15,9 +15,6 @@ namespace JooleApp.UI.Controllers
 
         private UserService service;
 
-
-
-
         public LoginController()
         {
             this.service = new UserService();

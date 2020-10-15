@@ -68,7 +68,7 @@
     
         @if (true)
         {
-            Html.BeginForm("RenderSearchPanel", "ProductSummary");
+            Html.BeginForm("RenderSearchPanel", "ProductSummary", FormMethod.Post, new { @class = "formCompare"});
             <button class="btn btn-sm btn-primary" type="submit" id="btnCompare" disabled>Compare</button>
             Html.EndForm();
         }
