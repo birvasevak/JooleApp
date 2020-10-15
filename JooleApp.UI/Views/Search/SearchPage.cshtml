@@ -11,19 +11,20 @@
 @if (ViewBag.CategoryList != null)
 {
     Html.BeginForm();
-    
-        <div class="searchForm">
-            @Html.DropDownListFor(m => m.CategoryId, ViewBag.CategoryList as SelectList, "Category", new { @class = "form-control btn btn-primary dropdown-toggle", id = "CategoryId" })
 
-            @Html.DropDownListFor(m => m.SubCategoryID, new SelectList(""), "Search...", new { @class = "form-control", id = "SubCategoryID" })
+    <div class="searchForm">
+        @Html.DropDownListFor(m => m.CategoryId, ViewBag.CategoryList as SelectList, "Category", new { @class = "form-control btn btn-primary dropdown-toggle", id = "CategoryId" })
 
-            <button class="btn btn-primary" type="submit" id="btnSearch">Search</button>
-        </div>
-    
+        @Html.DropDownListFor(m => m.SubCategoryID, new SelectList(""), "Search...", new { @class = "form-control", id = "SubCategoryID" })
+
+        <button class="btn btn-primary" type="submit" id="btnSearch">Search</button>
+    </div>
+
     Html.EndForm();
 }
 
-
+<!-- log out button -->
+<input type="button" id="btnLogOut" value="Log Out" onclick="@("window.location.href='" + @Url.Action("LogOut", "Login") + "'");" />
 
 <script src="~/Scripts/jquery-3.4.1.js"></script>
 <script>

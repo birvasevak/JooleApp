@@ -8,13 +8,15 @@
     @Scripts.Render("~/bundles/modernizr")
     @Styles.Render("~/Content/ProductSummary")
   
+
 </head>
 <body class="productSummaryLayoutBodyMain">
     <div class="productSummaryLayoutBody">
         <div class="productSummaryLayoutHeader">
             <img class="brandImage" src="@Url.Content("~/Images/Joole_logo.png")" />
-            
             <img id="avatar" src=@Session["UserAvatar"].ToString()>
+            <!-- log out button -->
+            <input type="button" id="btnLogOut" value="Log Out" onclick="@("window.location.href='" + @Url.Action("LogOut", "Login") + "'");" />
         </div>
 
         <div class="productSummaryLayoutContent">
