@@ -21,13 +21,11 @@
 
 
 <div class="container">
+    <h5 class="pageHeading">Product Compare</h5>
     <table id="description_section1" class="keyvalue table-bordered">
         <tbody>
 
-            <tr>
-                <th colspan="@colspanNo" scope="colgroup">DESCRIPTION</th>
 
-            </tr>
 
             @if (descriptionList != null)
             {
@@ -37,9 +35,14 @@
                     @foreach (var item in descriptionList)
                     {
                         <td>
-                            <img src="@item[0].imagePath"/>
+                            <img src="@item[0].imagePath" />
                         </td>
                     }
+                </tr>
+
+                <tr>
+                    <th colspan="@colspanNo" scope="colgroup">DESCRIPTION</th>
+
                 </tr>
 
                 <tr>

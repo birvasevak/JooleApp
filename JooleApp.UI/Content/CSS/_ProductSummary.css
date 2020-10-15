@@ -14,28 +14,28 @@
     height: 100vh;
 }
 
-    .productSummaryLayoutHeader {
-        display: flex;
-        flex-direction: row;
-        order: 1;
-        height: 9vh;
-        margin-bottom : 1vh;
-    }
+.productSummaryLayoutHeader {
+    display: flex;
+    flex-direction: row;
+    order: 1;
+    height: 9vh;
+    margin-bottom: 1vh;
+}
 
-        .brandImage {
-            align-self: flex-start;
-            height: inherit;
-        }
-
-
-    .productSummaryLayoutContent {
-        order: 2;
-        height: 85vh;
-    }
+.brandImage {
+    align-self: flex-start;
+    height: inherit;
+}
 
 
+.productSummaryLayoutContent {
+    order: 2;
+    height: 85vh;
+}
 
-    footer {
-        order: 3;
-        height: 5vh
-    }
+
+
+footer {
+    order: 3;
+    height: 5vh
+}
