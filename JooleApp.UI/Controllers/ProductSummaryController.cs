@@ -73,6 +73,10 @@ namespace JooleApp.UI.Controllers
         {
             ProductDetail pd = new ProductDetail();
             System.Diagnostics.Debug.WriteLine("SubCategory ID:" + sccObj.SubCategoryID);
+            if(queryData.data == null)
+            {
+                return new PartialViewResult();
+            }
             pd.prodDet = serv.getProdData(queryData.data, int.Parse(queryData.data2["id"]));
 
             foreach (KeyValuePair<int, List<Dictionary<String, String>>> prod in pd.prodDet)

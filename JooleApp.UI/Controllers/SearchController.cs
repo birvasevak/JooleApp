@@ -105,6 +105,9 @@ namespace JooleApp.UI.Controllers
                 p.imagePath = imgDataURL;
             }*/
 
+            int id1 = int.Parse(prods.id1), id2 = int.Parse(prods.id2);
+
+
             List<List<tblProduct>> descriptionList = new List<List<tblProduct>>();
             descriptionList.Add(detailService.getProductDescription(id1));
             descriptionList.Add(detailService.getProductDescription(id2));
@@ -125,6 +128,12 @@ namespace JooleApp.UI.Controllers
             ViewData["techList"] = techList;
 
             return View();
+        }
+
+
+        public ActionResult GoToProductSummary()
+        {
+            return (new ProductSummaryController()).ProductSummary(null);
         }
     }
 }
