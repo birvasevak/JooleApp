@@ -8,7 +8,9 @@ using System.Web.UI.WebControls;
 using System.Windows.Controls;
 using JooleApp.Domain;
 using JooleApp.Services.ModelService;
+using JooleApp.UI.DataModels;
 using JooleApp.UI.Models;
+using static JooleApp.UI.Controllers.ProductSummaryController;
 
 namespace JooleApp.UI.Controllers
 {
@@ -69,7 +71,8 @@ namespace JooleApp.UI.Controllers
             return this.RedirectToAction("ProductSummary", "ProductSummary", scc);
         }
 
-        public ActionResult compare(int id1, int id2)
+        
+        public ViewResult compare(JsonCompareModel prods)
         {
 
             foreach (var p in detailService.GetAll())
@@ -82,6 +85,20 @@ namespace JooleApp.UI.Controllers
                 string imgDataURL = string.Format("data:image/jpg;base64,{0}", imreBase64Data);
                 p.imagePath = imgDataURL;
             }
+
+
+            /*foreach(var p in detailService.getProductDescription(id1))
+            {
+                string imgPath = Server.MapPath("~" + "/App_Data/" + p.productName.Replace(" ", "") + ".jpg");
+
+                byte[] byteData = System.IO.File.ReadAllBytes(imgPath);
+                string imreBase64Data = Convert.ToBase64String(byteData);
+                string imgDataURL = string.Format("data:image/jpg;base64,{0}", imreBase64Data);
+                p.imagePath = imgDataURL;
+            }*/
+
+            int id1 = int.Parse(prods.id1), id2 = int.Parse(prods.id2);
+
 
             List<List<tblProduct>> descriptionList = new List<List<tblProduct>>();
             descriptionList.Add(detailService.getProductDescription(id1));
@@ -103,6 +120,12 @@ namespace JooleApp.UI.Controllers
             ViewData["techList"] = techList;
 
             return View();
+        }
+
+
+        public ActionResult GoToProductSummary()
+        {
+            return (new ProductSummaryController()).ProductSummary(null);
         }
     }
 }

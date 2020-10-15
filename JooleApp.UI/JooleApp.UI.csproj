@@ -133,6 +133,7 @@
     <Compile Include="Controllers\ProductSummaryController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="DataModels\JsonCompareModel.cs" />
     <Compile Include="DataModels\ProductDetail.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -211,6 +212,7 @@
     <Content Include="Views\ProductSummary\SearchBar.cshtml" />
     <Content Include="Views\Shared\_ProductsLayout.cshtml" />
     <Content Include="Views\Search\compare.cshtml" />
+    <Content Include="Views\ProductSummary\_CompareButtonPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\ProductDetails\" />
